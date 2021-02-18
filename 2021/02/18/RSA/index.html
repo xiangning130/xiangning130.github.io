@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>RSA解题总结 | Hexo</title>
+  <title>RSA解题总结 | Olivia&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="RSA解题总结用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。 1、已知e、n、c，求m用CTF-RSA-tool-master工具(推荐)把参数写入rsa.txt文件里，运行 $ python solve.py -i rsa.txt 用RSACtfTool工具把三个参数带进命令行。–uncipher 即为密文c">
+  <meta name="description" content="用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。 一、已知e、n、c，求m1、用CTF-RSA-tool-master工具(推荐)把参数写入rsa.txt文件里，运行 $ python solve.py -i rsa.txt 2、用RSACtfTool工具把三个参数带进命令行。–uncipher 即为密文c $">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA解题总结">
 <meta property="og:url" content="http://example.com/2021/02/18/RSA/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RSA解题总结用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。 1、已知e、n、c，求m用CTF-RSA-tool-master工具(推荐)把参数写入rsa.txt文件里，运行 $ python solve.py -i rsa.txt 用RSACtfTool工具把三个参数带进命令行。–uncipher 即为密文c">
+<meta property="og:site_name" content="Olivia&#39;s Blog">
+<meta property="og:description" content="用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。 一、已知e、n、c，求m1、用CTF-RSA-tool-master工具(推荐)把参数写入rsa.txt文件里，运行 $ python solve.py -i rsa.txt 2、用RSACtfTool工具把三个参数带进命令行。–uncipher 即为密文c $">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-18T15:17:37.000Z">
-<meta property="article:modified_time" content="2021-02-18T16:29:23.682Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2021-02-18T16:36:20.380Z">
+<meta property="article:author" content="Olivia">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Olivia's Blog" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -46,7 +46,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Olivia&#39;s Blog</a>
       </h1>
       
     </div>
@@ -95,12 +95,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="RSA解题总结"><a href="#RSA解题总结" class="headerlink" title="RSA解题总结"></a>RSA解题总结</h1><p>用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。</p>
-<h2 id="1、已知e、n、c，求m"><a href="#1、已知e、n、c，求m" class="headerlink" title="1、已知e、n、c，求m"></a>1、已知e、n、c，求m</h2><h4 id="用CTF-RSA-tool-master工具-推荐"><a href="#用CTF-RSA-tool-master工具-推荐" class="headerlink" title="用CTF-RSA-tool-master工具(推荐)"></a>用CTF-RSA-tool-master工具(推荐)</h4><p>把参数写入rsa.txt文件里，运行</p>
+        <p>用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。</p>
+<h2 id="一、已知e、n、c，求m"><a href="#一、已知e、n、c，求m" class="headerlink" title="一、已知e、n、c，求m"></a>一、已知e、n、c，求m</h2><h4 id="1、用CTF-RSA-tool-master工具-推荐"><a href="#1、用CTF-RSA-tool-master工具-推荐" class="headerlink" title="1、用CTF-RSA-tool-master工具(推荐)"></a>1、用CTF-RSA-tool-master工具(推荐)</h4><p>把参数写入rsa.txt文件里，运行</p>
 <p>$ <code>python solve.py -i rsa.txt</code></p>
-<h4 id="用RSACtfTool工具"><a href="#用RSACtfTool工具" class="headerlink" title="用RSACtfTool工具"></a>用RSACtfTool工具</h4><p>把三个参数带进命令行。–uncipher 即为密文c</p>
+<h4 id="2、用RSACtfTool工具"><a href="#2、用RSACtfTool工具" class="headerlink" title="2、用RSACtfTool工具"></a>2、用RSACtfTool工具</h4><p>把三个参数带进命令行。–uncipher 即为密文c</p>
 <p>$ <code>python3 RsaCtfTool.py --uncipher 34940946661152652505384725127371968412412443538119822569171955496417633812245 -e 65537 -n 58487247820009414970716333136883008993558343009835955977602531758977268120179</code></p>
-<h4 id="easyRSA-exp-py脚本"><a href="#easyRSA-exp-py脚本" class="headerlink" title="easyRSA_exp.py脚本"></a>easyRSA_exp.py脚本</h4><p> 这个脚本需要把n分解成p、q后，直接将参数写入脚本</p>
+<h4 id="3、easyRSA-exp-py脚本"><a href="#3、easyRSA-exp-py脚本" class="headerlink" title="3、easyRSA_exp.py脚本"></a>3、easyRSA_exp.py脚本</h4><p> 这个脚本需要把n分解成p、q后，直接将参数写入脚本</p>
 <p>$ <code>python easyRSA_exp.py</code></p>
 <p>在线分解n的网站：</p>
 <p><a target="_blank" rel="noopener" href="http://www.factordb.com/index.php">http://www.factordb.com/index.php</a> （推荐先用这个，这个网站是通过数据库查询匹配，数据库里记录了在CTF里面出现过的n分解，速度快）</p>
@@ -171,7 +171,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2021 John Doe<br>
+      &copy; 2021 Olivia<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
