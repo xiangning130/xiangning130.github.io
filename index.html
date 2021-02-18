@@ -93,9 +93,13 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。</p>
+        <p>用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，基本用这两个就行了。其中RSACtfTool在python3环境下运行。</p>
 <h2 id="一、已知e、n、c，求m"><a href="#一、已知e、n、c，求m" class="headerlink" title="一、已知e、n、c，求m"></a>一、已知e、n、c，求m</h2><h4 id="1、用CTF-RSA-tool-master工具-推荐"><a href="#1、用CTF-RSA-tool-master工具-推荐" class="headerlink" title="1、用CTF-RSA-tool-master工具(推荐)"></a>1、用CTF-RSA-tool-master工具(推荐)</h4><p>把参数写入rsa.txt文件里，运行</p>
 <p>$ <code>python solve.py -i rsa.txt</code></p>
+<p>rsa.txt文件格式为：</p>
+<p><code>n=</code></p>
+<p><code>c=</code></p>
+<p><code>e=</code></p>
 <h4 id="2、用RSACtfTool工具"><a href="#2、用RSACtfTool工具" class="headerlink" title="2、用RSACtfTool工具"></a>2、用RSACtfTool工具</h4><p>把三个参数带进命令行。–uncipher 即为密文c</p>
 <p>$ <code>python3 RsaCtfTool.py --uncipher 34940946661152652505384725127371968412412443538119822569171955496417633812245 -e 65537 -n 58487247820009414970716333136883008993558343009835955977602531758977268120179</code></p>
 <h4 id="3、easyRSA-exp-py脚本"><a href="#3、easyRSA-exp-py脚本" class="headerlink" title="3、easyRSA_exp.py脚本"></a>3、easyRSA_exp.py脚本</h4><p> 这个脚本需要把n分解成p、q后，直接将参数写入脚本</p>
