@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>RSA解题总结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="RSA解题总结用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。 1、已知e、n、c，求m用CTF-RSA-tool-master工具(推荐)把参数写入rsa.txt文件里，运行 $ python solve.py -i rsa.txt 用RSACtfTool工具把三个参数带进命令行。–uncipher 即为密文c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSA解题总结">
+<meta property="og:url" content="http://example.com/2021/02/18/RSA/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="RSA解题总结用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。 1、已知e、n、c，求m用CTF-RSA-tool-master工具(推荐)把参数写入rsa.txt文件里，运行 $ python solve.py -i rsa.txt 用RSACtfTool工具把三个参数带进命令行。–uncipher 即为密文c">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-18T15:17:37.000Z">
+<meta property="article:modified_time" content="2021-02-18T16:29:23.682Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-RSA" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/18/RSA/" class="article-date">
+  <time class="dt-published" datetime="2021-02-18T15:17:37.000Z" itemprop="datePublished">2021-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      RSA解题总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="RSA解题总结"><a href="#RSA解题总结" class="headerlink" title="RSA解题总结"></a>RSA解题总结</h1><p>用CTF-RSA-Tools-master和RSACtfTool这两个工具相当强大了，RSACrfTool在python3环境下运行。</p>
+<h2 id="1、已知e、n、c，求m"><a href="#1、已知e、n、c，求m" class="headerlink" title="1、已知e、n、c，求m"></a>1、已知e、n、c，求m</h2><h4 id="用CTF-RSA-tool-master工具-推荐"><a href="#用CTF-RSA-tool-master工具-推荐" class="headerlink" title="用CTF-RSA-tool-master工具(推荐)"></a>用CTF-RSA-tool-master工具(推荐)</h4><p>把参数写入rsa.txt文件里，运行</p>
+<p>$ <code>python solve.py -i rsa.txt</code></p>
+<h4 id="用RSACtfTool工具"><a href="#用RSACtfTool工具" class="headerlink" title="用RSACtfTool工具"></a>用RSACtfTool工具</h4><p>把三个参数带进命令行。–uncipher 即为密文c</p>
+<p>$ <code>python3 RsaCtfTool.py --uncipher 34940946661152652505384725127371968412412443538119822569171955496417633812245 -e 65537 -n 58487247820009414970716333136883008993558343009835955977602531758977268120179</code></p>
+<h4 id="easyRSA-exp-py脚本"><a href="#easyRSA-exp-py脚本" class="headerlink" title="easyRSA_exp.py脚本"></a>easyRSA_exp.py脚本</h4><p> 这个脚本需要把n分解成p、q后，直接将参数写入脚本</p>
+<p>$ <code>python easyRSA_exp.py</code></p>
+<p>在线分解n的网站：</p>
+<p><a target="_blank" rel="noopener" href="http://www.factordb.com/index.php">http://www.factordb.com/index.php</a> （推荐先用这个，这个网站是通过数据库查询匹配，数据库里记录了在CTF里面出现过的n分解，速度快）</p>
+<p><a target="_blank" rel="noopener" href="https://www.alpertron.com.ar/ECM.HTM">https://www.alpertron.com.ar/ECM.HTM</a></p>
+<p>esayRSA_exp的代码为</p>
+<p><code>#coding:utf-8</code><br><code>#实现RSA解密</code><br><code>from Crypto.Util.number import *</code></p>
+<p><code>n= 58487247820009414970716333136883008993558343009835955977602531758977268120179    #模数n</code><br><code>e= 65537</code><br><code>c= 34940946661152652505384725127371968412412443538119822569171955496417633812245     #c是密文</code><br><code>p= 237916789679727912591186300880823195027         #通过在线因式分解网站将n分解出p和q</code><br><code>q= 245830686849558293877312212362586985377</code></p>
+<p><code>d=inverse(e,(p-1)*(q-1))    #求e在 (p-1)*(q-1)的逆元d</code>　<br><code>m=pow(c,d,n)   # 解密是c的d次方模n，m求出来即为明文</code><br><code>print&quot;m=&quot;,m</code></p>
+<p>还有部分脚本可以参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/P201521440001/p/11439344.html">https://www.cnblogs.com/P201521440001/p/11439344.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/18/RSA/" data-id="cklb2xqmb00007ioh28u22x3z" data-title="RSA解题总结" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/18/RSA/">RSA解题总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
