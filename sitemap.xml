@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite-url/2021/02/19/RSA%E8%A7%A3%E9%A2%98%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/</loc>
+    <loc>http://yoursite-url/2021/02/19/RSA%E5%85%A5%E9%97%A8/</loc>
     
     <lastmod>2021-02-19</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite-url/2021/02/19/RSA%E5%85%A5%E9%97%A8/</loc>
+    <loc>http://yoursite-url/2021/02/19/RSA%E8%A7%A3%E9%A2%98%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/</loc>
     
     <lastmod>2021-02-19</lastmod>
     
@@ -61,6 +61,20 @@
   
   <url>
     <loc>http://yoursite-url/tags/Crypto/</loc>
+    <lastmod>2021-02-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/RSA/</loc>
+    <lastmod>2021-02-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/CTF/</loc>
     <lastmod>2021-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
