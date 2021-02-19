@@ -1,493 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<html>
 <head>
-  <!-- Google Analytics -->
+  <meta charset="utf-8">
   
-
-  <!-- Baidu Tongji -->
   
-
-  <!-- Baidu Push -->
+  <title>Viva La Vida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Viva La Vida">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Viva La Vida">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Olivia">
+<meta name="twitter:card" content="summary">
   
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc" />
-  <meta name="baidu-site-verification" content="PpzM9WxOJU" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="" />
-  <meta name="keyword" content="" />
-  <link rel="shortcut icon" href="/" />
-
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
-  <!-- Bootstrap Core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css" />
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/css/beantech.min.css" />
-
-  <!-- Pygments Highlight CSS -->
+    <link rel="alternate" href="/atom.xml" title="Viva La Vida" type="application/atom+xml">
   
-<link rel="stylesheet" href="/css/highlight.css">
-<link rel="stylesheet" href="/css/widget.css">
-<link rel="stylesheet" href="/css/rocket.css">
-<link rel="stylesheet" href="/css/signature.css">
-<link rel="stylesheet" href="/css/catalog.css">
-<link rel="stylesheet" href="/css/livemylife.css">
-
-
   
-
+    <link rel="shortcut icon" href="/favicon.png">
   
-
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  <!-- Custom Fonts -->
-  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-  <!-- Hux change font-awesome CDN to qiniu -->
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
-    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
-
-  <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://example.com/">
-  <title>
     
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
     
-    
-  </title>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
 <meta name="generator" content="Hexo 5.3.0"></head>
 
-
-<!-- hack iOS CSS :active style -->
-
-<body ontouchstart="" class="body--home">
-	<!-- ThemeColor -->
-	
-
-	<!-- Gitter -->
-	
-
-	<!-- Navigation (contains search)-->
-	<!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header page-scroll">
-      <button type="button" class="navbar-toggle">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Viva La Vida</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-    <div id="huxblog_navbar">
-      <div class="navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a href="/">Home</a>
-          </li>
-
-          
-
-          
-        </ul>
-      </div>
-    </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container -->
-</nav>
-<!-- progress -->
-<div id="progress">
-  <div class="line" style="width: 0%;"></div>
-</div>
-
-
-<script>
-  // Drop Bootstarp low-performance Navbar
-  // Use customize navbar with high-quality material design animation
-  // in high-perf jank-free CSS3 implementation
-  var $body = document.body;
-  var $toggle = document.querySelector('.navbar-toggle');
-  var $navbar = document.querySelector('#huxblog_navbar');
-  var $collapse = document.querySelector('.navbar-collapse');
-
-  $toggle.addEventListener('click', handleMagic)
-
-  function handleMagic(e) {
-    if ($navbar.className.indexOf('in') > 0) {
-      // CLOSE
-      $navbar.className = " ";
-      // wait until animation end.
-      setTimeout(function() {
-        // prevent frequently toggle
-        if ($navbar.className.indexOf('in') < 0) {
-          $collapse.style.height = "0px"
-        }
-      }, 400)
-    } else {
-      // OPEN
-      $collapse.style.height = "auto"
-      $navbar.className += " in";
-    }
-  }
-</script>
-
-
-	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
-	<!-- Modified by Yu-Hsuan Yen -->
-<!-- Post Header -->
-
-  <style type="text/css">
-    header.intro-header {
-       /*config*/
-        background-image: url('/undefined');
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Viva La Vida</a>
+      </h1>
       
-    }
-
-    
-  </style>
-
-
-
-
-
-<header class="intro-header">
-  <!-- Signature -->
-  <div id="signature">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          
-          <div class="site-heading">
-            <h1>Viva La Vida</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">Olivia&#39;s Blog</span>
-          </div>
-          
-        </div>
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Olivia&#39;s Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
-
-  
-
 </header>
 
-
-
-	<!-- Main Content (Post contains
-	Pager、
-	tip、
-	socialshare、
-	gitalk、gitment、disqus-comment、
-	Catalog、
-	Sidebar、
-	Featured-Tags、
-	Friends Blog、
-	anchorjs、
-	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
-
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-
-      <!-- Main Content -->
-
-
-<div class="post-preview">
-
+      <div class="outer">
+        <section id="main">
   
-
-
-  <a href="/2021/02/19/RSA解题快速指南/">
-    <h2 class="post-title">
-      RSA解题快速指南
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      一、基本的解题1、已知N、e、c，且N较小易分解。​            用CTF-RSA-tool-master工具(推荐)，把N、e、c写入rsa.txt中。
-​            $ python solve.py -i rsa.txt
-2、已知N、e、c，但N比较大不易分解。​            用RSACtfTool    (参数  –uncipher  -e   -n)......
-    </div>
-  </a>
-  
-  <p class="post-meta">
-    Posted by Olivia on
-    2021-02-19
-  </p>
-  
-
-</div>
-<hr>
-
-
-
-  <!-- Pager -->
-  <ul class="pager">
+    <article id="post-RSA解题快速指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/19/RSA%E8%A7%A3%E9%A2%98%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/" class="article-date">
+  <time class="dt-published" datetime="2021-02-19T06:38:23.000Z" itemprop="datePublished">2021-02-19</time>
+</a>
     
-    
-  </ul>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!--   -->
-<h5><a href="/">VISITORS</a></h5>
-
-<!--   -->
-
-        <hr>
-    
-        <!-- Featured Tags -->
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-    </ul>
   </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/19/RSA%E8%A7%A3%E9%A2%98%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/">RSA解题快速指南</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、基本的解题"><a href="#一、基本的解题" class="headerlink" title="一、基本的解题"></a>一、基本的解题</h2><h3 id="1、已知N、e、c，且N较小易分解。"><a href="#1、已知N、e、c，且N较小易分解。" class="headerlink" title="1、已知N、e、c，且N较小易分解。"></a>1、已知N、e、c，且N较小易分解。</h3><p>​            用CTF-RSA-tool-master工具(推荐)，把N、e、c写入rsa.txt中。</p>
+<p>​            $ <code>python solve.py -i rsa.txt</code></p>
+<h3 id="2、已知N、e、c，但N比较大不易分解。"><a href="#2、已知N、e、c，但N比较大不易分解。" class="headerlink" title="2、已知N、e、c，但N比较大不易分解。"></a>2、已知N、e、c，但N比较大不易分解。</h3><p>​            用RSACtfTool    (参数  –uncipher  -e   -n)</p>
+<p>$ <code>python3 RsaCtfTool.py --uncipher     34940946661152652505384725127371968412412443538119822569171955496417633812245 -e 65537 -n 58487247820009414970716333136883008993558343009835955977602531758977268120179</code></p>
+<h3 id="3、已知公钥pubkey和待解密文件flag-enc"><a href="#3、已知公钥pubkey和待解密文件flag-enc" class="headerlink" title="3、已知公钥pubkey和待解密文件flag.enc"></a>3、已知公钥pubkey和待解密文件flag.enc</h3><p>​        先用CTF-RSA-tool-master工具 ( 参数  –decrypt  –k ）</p>
+<p>​        $ <code>python solve.py --decrypt flag.enc --k pubkey.pem</code></p>
+<p>​        若无法解出，尝试用RSACtfTool   ( 参数  –publickey  –uncipherfile）</p>
+<p>​        $ <code>python3 RsaCtfTool.py --publickey pubkey.pem --uncipherfile flag.enc</code></p>
+<h3 id="4、已知公钥pubkey和待解密文件flag-enc，但n较大不好分解"><a href="#4、已知公钥pubkey和待解密文件flag-enc，但n较大不好分解" class="headerlink" title="4、已知公钥pubkey和待解密文件flag.enc，但n较大不好分解"></a>4、已知公钥pubkey和待解密文件flag.enc，但n较大不好分解</h3><p>​        CTF-RSA-Tools-master和RSACtfTool都集成很多Attack方法.</p>
+<p>​        CTF-RSA-Tools-master  (参数 –verbose -k  –decrypt)</p>
+<p>​        $ <code>python solve.py --verbose -k pubkey.pem --decrypt flag.enc</code></p>
+<p>​        RSACtfTool (参数 –publickey –uncipherfile)</p>
+<p>​        $ <code>python3 RsaCtfTool.py --publickey pubkey.pem --uncipherfile flag.enc</code></p>
+<h2 id="二、利用特殊算法的解题"><a href="#二、利用特殊算法的解题" class="headerlink" title="二、利用特殊算法的解题"></a>二、利用特殊算法的解题</h2><h3 id="1、共模攻击"><a href="#1、共模攻击" class="headerlink" title="1、共模攻击"></a>1、共模攻击</h3><p>​        如果有两组待解密文件和key文件，且两组的模N都相同，可以用<strong>共模攻击。</strong></p>
+<p>​        CTF-RSA-Tools-master：将两组的N、e、c写入share_N.txt，运行：</p>
+<p>​        $ <code>python solve.py --i share_N.txt</code> </p>
+<h3 id="2、公因数攻击"><a href="#2、公因数攻击" class="headerlink" title="2、公因数攻击"></a>2、公因数攻击</h3><p>​        如果有两组n、e、c，且n不相同，n很大很难分解，且题目提示gcd的话，可能两个n有公因数，可以试试<strong>公因数攻击</strong>。</p>
+<p>​        用gcd_exp.py（脚本在RSA/exp中）。</p>
+<p>​        $ <code>python gcd_exp.py</code> </p>
+<h3 id="3、已知p、q、dp、dq、c"><a href="#3、已知p、q、dp、dq、c" class="headerlink" title="3、已知p、q、dp、dq、c"></a>3、已知p、q、dp、dq、c</h3><p>​        用RSA-CRT.py（脚本在RSA/exp中）。</p>
+<p>​        $ <code>python RSA-CRT.py</code></p>
+<h3 id="4、多质数RSA"><a href="#4、多质数RSA" class="headerlink" title="4、多质数RSA"></a>4、多质数RSA</h3><p>​        如果n分解出多个质数，则可能是多质数RSA，用multi-factor.py  (脚本在RSA/exp中)</p>
+<p>​        $ <code>python multi-factor.py</code></p>
+<h3 id="5、m、d、p部分泄露"><a href="#5、m、d、p部分泄露" class="headerlink" title="5、m、d、p部分泄露"></a>5、m、d、p部分泄露</h3><p>​        如果m、d或者p部分位数（高位或低位）泄漏，可以用SAGE脚本（脚本在RSA/exp/sage中），需要安装sagemath才能运行。</p>
+<p>​        m泄露：$ <code>sage partial_m_exp.sage</code></p>
+<p>​        d泄露：$ <code>sage partial_d_exp.sage</code></p>
+<p>​        p泄露：<code>$ sage partial_p_exp.sage</code></p>
+<h2 id="三、利用工具解决解题过程中的中间值"><a href="#三、利用工具解决解题过程中的中间值" class="headerlink" title="三、利用工具解决解题过程中的中间值"></a>三、利用工具解决解题过程中的中间值</h2><h3 id="1、分解大整数因子"><a href="#1、分解大整数因子" class="headerlink" title="1、分解大整数因子"></a>1、分解大整数因子</h3><h4 id="（1）在线分解n的网站"><a href="#（1）在线分解n的网站" class="headerlink" title="（1）在线分解n的网站"></a>（1）在线分解n的网站</h4><p>​            <a target="_blank" rel="noopener" href="http://www.factordb.com/index.php">http://www.factordb.com/index.php</a> （推荐先用这个，这个网站是通过数据库查询匹配，数据库里记录了在CTF里面出现过的N分解，速度快）</p>
+<p>​            <a target="_blank" rel="noopener" href="https://www.alpertron.com.ar/ECM.HTM">https://www.alpertron.com.ar/ECM.HTM</a> （速度慢）</p>
+<h4 id="（2）yafu-速度快"><a href="#（2）yafu-速度快" class="headerlink" title="（2）yafu  (速度快)"></a>（2）yafu  (速度快)</h4><pre><code>          我装在windows中，点击yahu-x64.exe，在命令行里输入 
+</code></pre>
+<p>​                <code>factor(21)</code></p>
+<h4 id="（3）SageMath-（速度慢）"><a href="#（3）SageMath-（速度慢）" class="headerlink" title="（3）SageMath （速度慢）"></a>（3）SageMath （速度慢）</h4><p>​                $ <code>sage</code></p>
+<p>​                sage: <code>factor(21)</code> </p>
+<h3 id="2、查看公钥-pem文件中的N、e等参数"><a href="#2、查看公钥-pem文件中的N、e等参数" class="headerlink" title="2、查看公钥.pem文件中的N、e等参数"></a>2、查看公钥.pem文件中的N、e等参数</h3><p>​        （1）CTF-RSA-tool-master  ( 参数 -g  –dumpkey  -k )            </p>
+<p>​                $ <code>python solve.py -g --dumpkey -k pubkey.pem</code></p>
+<p>​        （2）RSACtfTool  ( 参数 –dumpkey  –publickey )</p>
+<p>​                $ <code>python3 RsaCtfTool.py --dumpkey --publickey pubkey.pem</code>     </p>
+<h3 id="3、通过公钥生成私钥"><a href="#3、通过公钥生成私钥" class="headerlink" title="3、通过公钥生成私钥"></a>3、通过公钥生成私钥</h3><p>​            用RSACtfTool  ( 参数 –publickey   –private )</p>
+<p>​            $ <code>python3 RsaCtfTool.py --publickey pubkey.pem --private &gt; prikey.pem</code></p>
+<h3 id="4、已知e、N生成公钥"><a href="#4、已知e、N生成公钥" class="headerlink" title="4、已知e、N生成公钥"></a>4、已知e、N生成公钥</h3><p>​            用RSACtfTool  ( 参数 –createpub  -e  -n ) </p>
+<p>​            $ <code>python3 RsaCtfTool.py --createpub -e 65537 -n 58487247820009414970716333136883008993558343009835955977602531758977268120179</code></p>
+<h2 id="四、编写python脚本常用到的函数"><a href="#四、编写python脚本常用到的函数" class="headerlink" title="四、编写python脚本常用到的函数"></a>四、编写python脚本常用到的函数</h2><h3 id="1、RSA加密、解密的函数-pow"><a href="#1、RSA加密、解密的函数-pow" class="headerlink" title="1、RSA加密、解密的函数     pow( )"></a>1、RSA加密、解密的函数     pow( )</h3><p>​    加密：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">c&#x3D;pow(m,e,n)	# m的e次方模n</span><br></pre></td></tr></table></figure>
+<p>​    解密：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">m&#x3D;pow(c,d,n)		#c的d次方模n</span><br></pre></td></tr></table></figure>
+<h3 id="2、生成随机素数-getPrime"><a href="#2、生成随机素数-getPrime" class="headerlink" title="2、生成随机素数     getPrime( )"></a>2、生成随机素数     getPrime( )</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">p&#x3D;getPrime(512)     #括号里面数字表示生成的素数的位数 	</span><br><span class="line">getStrongPrime(512)  #生成强素数</span><br></pre></td></tr></table></figure>
+<h3 id="3、判断素数-isPrime"><a href="#3、判断素数-isPrime" class="headerlink" title="3、判断素数    isPrime( )"></a>3、判断素数    isPrime( )</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">print(isPrime(7))		</span><br></pre></td></tr></table></figure>
+<h3 id="4、求逆元-inverse-或invert"><a href="#4、求逆元-inverse-或invert" class="headerlink" title="4、求逆元    inverse( )或invert( )"></a>4、求逆元    inverse( )或invert( )</h3><p>Crypto 包里的 inverse() 函数, 两个参数不互素的时候返回的是除以最大公因数之后的逆元。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">d&#x3D;inverse(e,(p-1)*(q-1))	#求e在模 (p-1)*(q-1) 下的逆元</span><br></pre></td></tr></table></figure>
+<p>使用 gmpy2 包里的 invert() 函数，两个参数不满足互素时会报错，只有满足互素时正常求逆元。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from gmpy2 import invert</span><br><span class="line">d&#x3D;invert(e,(p-1)*(q-1))		#求e在模 (p-1)*(q-1) 下的逆元</span><br></pre></td></tr></table></figure>
+<h3 id="5、求最大公因数-GCD"><a href="#5、求最大公因数-GCD" class="headerlink" title="5、求最大公因数   GCD( )"></a>5、求最大公因数   GCD( )</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">print(GCD(12,18))			#求12和18的最大公因数</span><br></pre></td></tr></table></figure>
+<h3 id="6、求n次方根"><a href="#6、求n次方根" class="headerlink" title="6、求n次方根"></a>6、求n次方根</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from gmpy2 import iroot</span><br><span class="line">print(iroot(4,2)) 		#表示对4开平方根</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="五、简单的RSA-加密、解密函数"><a href="#五、简单的RSA-加密、解密函数" class="headerlink" title="五、简单的RSA 加密、解密函数"></a>五、简单的RSA 加密、解密函数</h2><h3 id="1、RSA加密"><a href="#1、RSA加密" class="headerlink" title="1、RSA加密"></a>1、RSA加密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#coding:utf-8</span><br><span class="line">#实现RSA加密</span><br><span class="line">from Crypto.Util.number import *</span><br><span class="line">m&#x3D;123456 	#明文</span><br><span class="line">e&#x3D;65537  </span><br><span class="line">p,q&#x3D;getPrime(128),getPrime(128) 	#随机生成两个128位的素数</span><br><span class="line">n&#x3D;p*q</span><br><span class="line">c&#x3D;pow(m,e,n) 			# 加密函数，m的e次方模n，c为密文</span><br><span class="line">print&quot;c&#x3D;&quot;,c</span><br></pre></td></tr></table></figure>
+<h3 id="2、RSA解密"><a href="#2、RSA解密" class="headerlink" title="2、RSA解密"></a>2、RSA解密</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#coding:utf-8</span><br><span class="line">#实现RSA解密</span><br><span class="line">from Crypto.Util.number import *</span><br><span class="line"></span><br><span class="line">n&#x3D; 58487247820009414970716333136883008993558343009835955977602531758977268120179    #模数n</span><br><span class="line">e&#x3D; 65537 </span><br><span class="line">c&#x3D; 34940946661152652505384725127371968412412443538119822569171955496417633812245 	#c是密文</span><br><span class="line">p&#x3D; 237916789679727912591186300880823195027 		#通过在线因式分解网站将n分解出p和q</span><br><span class="line">q&#x3D; 245830686849558293877312212362586985377</span><br><span class="line"></span><br><span class="line">d&#x3D;inverse(e,(p-1)*(q-1))    #求e在 (p-1)*(q-1)的逆元d　</span><br><span class="line">m&#x3D;pow(c,d,n)   # 解密是c的d次方模n，m求出来即为明文</span><br><span class="line">print&quot;m&#x3D;&quot;,m</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/19/RSA%E8%A7%A3%E9%A2%98%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/" data-id="cklc6k51h0000o8ohdysz8x03" data-title="RSA解题快速指南" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
 </section>
-
-        <hr>
-    
         
-<!-- <h5>RECENT POSTS</h5> -->
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
+          <aside id="sidebar">
+  
     
-    <a href="/2021/02/19/RSA%E8%A7%A3%E9%A2%98%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/">
-      <li>RSA解题快速指南</li>
-    </a>
+
+  
     
-  </ul>
-</div>
 
-
-        <hr>
+  
     
-        <!-- Friends Blog -->
-
-
-        <hr>
+  
     
-        
-    <!-- <h5>ARCHIVES</h5> -->
-    <h5><a href="/archives/">ARCHIVES</a></h5>
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
     </div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-
-        <hr>
-    
-</div>
-
-    
   </div>
-</div>
 
 
-	<!-- Footer (contains ThemeColor、viewer) -->
-	<!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center">
-          
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/19/RSA%E8%A7%A3%E9%A2%98%E5%BF%AB%E9%80%9F%E6%8C%87%E5%8D%97/">RSA解题快速指南</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-          
-
-          
-
-          
-
-          
-
-          
-
-          
-
-          
-
-        </ul>
-        <p class="copyright text-muted">
-          Copyright &copy;
-          Olivia
-          2021
-          <br>
-          Theme by
-          <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a>
-          <span style="display: inline-block; margin: 0 5px;">
-            <i class="fa fa-heart"></i>
-          </span>
-          re-Ported by
-          <a target="_blank" rel="noopener" href="https://v-vincen.life/">Live My Life</a>
-          |
-          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe>
-        </p>
+  
+</aside>
+        
       </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Olivia<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
 
-<a id="rocket" href="#top" class=""></a>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-<!-- jQuery -->
-<script type="text/javascript" src="/js/jquery.min.js"></script>
-<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
-<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
-<!-- Bootstrap Core JavaScript -->
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script type="text/javascript" src="/js/hux-blog.min.js"></script>
 
-<!-- catalog -->
-<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
 
-<!-- totop(rocket) -->
-<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
-
-<!-- Busuanzi JavaScript -->
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
 
 
+<script src="/js/script.js"></script>
 
 
 
 
 
-
-<script>
-  // async load function
-  function async (u, c) {
-    var d = document,
-      t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.src = u;
-    if (c) {
-      o.addEventListener('load', function (e) {
-        c(null, e);
-      }, false);
-    }
-    s.parentNode.insertBefore(o, s);
-  }
-
-  // fastClick.js
-  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
-    var $nav = document.querySelector("nav");
-    if ($nav)
-      FastClick.attach($nav);
-    }
-  )
-</script>
-
-<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
-https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
-<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
-
-<!-- jquery.tagcloud.js -->
-<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("http://example.com/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
-'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
-
-
-	<!-- Search -->
-	
-
-	<!-- Image to hack wechat -->
-	<!-- <img src="http://example.com/img/icon_wechat.png" width="0" height="0" /> -->
-	<!-- Migrate from head to bottom, no longer block render and still work -->
-
+  </div>
 </body>
-
 </html>
