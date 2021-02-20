@@ -138,10 +138,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://xiangning130.github.io/2021/02/19/RSA入门/">
+  <link rel="canonical" href="https://xiangning130.github.io/2021/02/20/RSA工具/">
   <title>
     
-    RSA入门 - Viva La Vida
+    RSA工具 - Viva La Vida
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -318,11 +318,11 @@
               <a class="tag" href="/tags/#CTF" title="CTF">CTF</a>
               
             </div>
-            <h1>RSA入门</h1>
+            <h1>RSA工具</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by Olivia on
-              2021-02-19
+              2021-02-20
             </span>
 
 
@@ -330,11 +330,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">4</span> Minutes
+              Estimated Reading Time <span class="post-count">3</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.1k</span> In Total
+              Words <span class="post-count">804</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -396,40 +396,73 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p>RSA是非常经典的非对称加密算法，也称为公钥加密算法。RSA算法广泛地应用在数字签名等密码体系中。它有着一定的理论复杂度，应用广泛，同时也经常和AES、Hash等其他的加密算法配合使用，因此RSA是CTF比赛中经常出现的题目。</p>
-<h2 id="RSA原理"><a href="#RSA原理" class="headerlink" title="RSA原理"></a>RSA原理</h2><p>不同与传统的加密方式，即加密者和解密者用相同的密钥加解密，RSA算法是有两把密钥，公钥和私钥。公钥，顾名思义是公开的密钥。私钥，是加密或解密者私有的，保密的。公钥加密的密文用私钥可以解开，私钥加密的密文可以用公钥解开。在CTF比赛中，一般是公钥和密文容易得到，需要根据现有条件求私钥或者用其他攻击方式求得明文。flag一般就藏在明文中。</p>
-<p>RSA加密的可靠性在于：求得两个大素数以及它们的乘积很简单，但是在不知道这两个大素数的情况下，通过乘积求这两个大素数是非常困难的。</p>
-<p>​        所以这里就有三个关键参数：</p>
-<p>​        大素数 1:     <em>p</em>,     大素数 2:     <em>q</em>    ， 以及这两个大素数的乘积：<em>N</em>      <em>（ N=pq ）</em></p>
-<p>​        然后通过一点关于逆元的数论知识：<br>$$<br>ed \equiv 1 mod \phi(n)<br>$$<br>​        即 <em>e</em> 和 <em>d</em> 是 在 模 <em>φ(n)</em> 下互为逆元，即<em>e</em>和<em>d</em>的乘积对 <em>φ(n)</em> 取余数恒等于1。 </p>
-<p>​        其中                                                                            <em>φ (n) = ( p -1) ( q - 1 )</em></p>
-<p>如果已知<em>φ (n),</em> 通过<em>e</em>求出<em>d</em>是很简单的，用invert函数就可以。但是<em>φ (n)</em>本身并不好求，因为它要通过知道<em>p</em>和<em>q</em>的值来计算。<em>p</em>和<em>q</em>的值在<em>N</em>为大整数是非常难求出来的。所以，对于大家，要做RSA题目要牢记以下参数和公式：</p>
-<h4 id="首先，牢记RSA加密中出现的以下几个关键参数："><a href="#首先，牢记RSA加密中出现的以下几个关键参数：" class="headerlink" title="首先，牢记RSA加密中出现的以下几个关键参数："></a>首先，牢记RSA加密中出现的以下几个<strong>关键参数</strong>：</h4><p>1、两个大的素数 <em>p</em> 和 <em>q</em>，以及它们的积 <em>n</em>，<em>n</em> 是加解密过程中的模数</p>
-<p>2、欧拉函数     <em>φ (n) = ( p -1) ( q - 1 )</em></p>
-<p>3、加密指数 <em>e</em>，和解密指数 <em>d = invert ( e,  φ(n) )</em></p>
-<p>4、密文 <em>c</em>，明文 <em>m</em></p>
-<p>5、公钥<em>（ e, n ）<em>，私钥</em>（d, n）</em></p>
-<h4 id="接下来，牢记下面两个加密和解密公式："><a href="#接下来，牢记下面两个加密和解密公式：" class="headerlink" title="接下来，牢记下面两个加密和解密公式："></a>接下来，牢记下面两个加密和解密公式：</h4><h4 id="加密：-c-m-e-mod-n"><a href="#加密：-c-m-e-mod-n" class="headerlink" title="加密：    c= m^e mod n"></a><strong>加密：</strong>    <em>c= m^e mod n</em></h4><h4 id="解密：-m-c-d-mod-n"><a href="#解密：-m-c-d-mod-n" class="headerlink" title="解密：    m=c^d mod n"></a><strong>解密：</strong>    <em>m=c^d mod n</em></h4><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="简单RSA代码的实现"><a href="#简单RSA代码的实现" class="headerlink" title="简单RSA代码的实现"></a>简单RSA代码的实现</h2><p>根据上面的加、解密公式，就可以用python来编写简单的加、解密代码。</p>
-<h3 id="RSA加密"><a href="#RSA加密" class="headerlink" title="RSA加密"></a>RSA加密</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#实现RSA加密</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number import *</span><br><span class="line"><span class="attribute">m</span>=123456 	#明文</span><br><span class="line"><span class="attribute">e</span>=65537  </span><br><span class="line">p,<span class="attribute">q</span>=getPrime(128),getPrime(128) 	#随机生成两个128位的素数</span><br><span class="line"><span class="attribute">n</span>=p*q</span><br><span class="line"><span class="attribute">c</span>=pow(m,e,n) 			# 加密函数，m的e次方模n，c为密文</span><br><span class="line">print<span class="string">"c="</span>,c</span><br></pre></td></tr></table></figure>
+        <p>总结一下RSA解题中可以利用的一些工具，帮助快速解题。</p>
+<h2 id="一、CTF-RSA-tool"><a href="#一、CTF-RSA-tool" class="headerlink" title="一、CTF-RSA-tool"></a>一、CTF-RSA-tool</h2><p>项目地址：<a href="https://github.com/3summer/CTF-RSA-tool" target="_blank" rel="noopener">https://github.com/3summer/CTF-RSA-tool</a></p>
+<p>优点：速度快，使用方便。解决RSA基本题型没问题。</p>
+<p>缺点：集成的算法不会特别多，调用sagemath的脚本有时会出错（应该是python2和python3的兼容问题）</p>
+<p>安装可以参考github上面的安装指南。使用可以参考项目的readme.md 和example.txt.</p>
+<p>我觉得最方便的一个用法就是可以把n、e、c等参数写入一个文档，如rsa.txt。就可以快速秒题了。</p>
+<p>参数文档格式非常简单:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">n</span>= <span class="number">58487247820009414970716333136883008993558343009835955977602531758977268120179</span>   </span><br><span class="line"><span class="attr">e</span>= <span class="number">65537</span> </span><br><span class="line"><span class="attr">c</span>= <span class="number">34940946661152652505384725127371968412412443538119822569171955496417633812245</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="RSA解密"><a href="#RSA解密" class="headerlink" title="RSA解密"></a>RSA解密</h3><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#实现RSA解密</span></span><br><span class="line">from Crypto.Util.number <span class="built_in">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="attr">n=</span> <span class="number">58487247820009414970716333136883008993558343009835955977602531758977268120179</span>    <span class="comment">#模数n</span></span><br><span class="line"><span class="attr">e=</span> <span class="number">65537</span> </span><br><span class="line"><span class="attr">c=</span> <span class="number">34940946661152652505384725127371968412412443538119822569171955496417633812245</span> 	<span class="comment">#c是密文</span></span><br><span class="line"><span class="attr">p=</span> <span class="number">237916789679727912591186300880823195027</span> 		<span class="comment">#通过在线因式分解网站将n分解出p和q</span></span><br><span class="line"><span class="attr">q=</span> <span class="number">245830686849558293877312212362586985377</span></span><br><span class="line"></span><br><span class="line"><span class="attr">d=inverse(e,(p-1)*(q-1))</span>    <span class="comment">#求e在 (p-1)*(q-1)的逆元d　</span></span><br><span class="line"><span class="attr">m=pow(c,d,n)</span>   <span class="comment"># 解密是c的d次方模n，m求出来即为明文</span></span><br><span class="line">print<span class="string">"m="</span>,m</span><br></pre></td></tr></table></figure>
+<p>秒题的命令也很简单</p>
+<p>$ <code>python solve.py -i rsa.txt</code></p>
+<p>examples文件夹还出了对应不同算法对应的参数文档怎么写, 参考examples里面的input_example.txt.</p>
+<p>如果知道公钥pubkey.pem和密文flag.enc, 就带参数 –decrypt  –k 解题。</p>
+<p>$ <code>python solve.py --decrypt flag.enc --k pubkey.pem</code></p>
+<p>如果对于n不好分解的情况，上面的命令可能解不出。就再加一个 –verbose 参数试试，项目会调用更多的算法尝试解决。</p>
+<p>$ <code>python solve.py --verbose -k pubkey.pem --decrypt flag.enc</code></p>
+<p>该工具实现了如下算法：</p>
+<ul>
+<li><p>大整数分解</p>
+<ul>
+<li>检查过去的ctf比赛中出现的素数</li>
+<li>Gimmicky Primes method</li>
+<li>Wiener’s attack</li>
+<li>factordb在线分解N</li>
+<li>Small q (q &lt; 100,000)</li>
+<li>费马分解（p&amp;q相近时）</li>
+<li>Boneh Durfee Method (d &lt; n^0.292)</li>
+<li>Small fractions method when p/q is close to a small fraction</li>
+</ul>
+</li>
+<li><p>Basic Broadcast Attack</p>
+</li>
+<li><p>Known High Bits Factor Attack</p>
+</li>
+<li><p>Common factor between ciphertext and modulus attack</p>
+</li>
+<li><p>小公钥指数攻击</p>
+</li>
+<li><p>Rabin 算法</p>
+</li>
+<li><p>模不互素</p>
+</li>
+<li><p>共模攻击</p>
+</li>
+<li><p>d泄露攻击</p>
+</li>
+</ul>
+<h2 id="二、RSACtfTool"><a href="#二、RSACtfTool" class="headerlink" title="二、RSACtfTool"></a>二、RSACtfTool</h2><p>项目地址：<a href="https://github.com/Ganapati/RsaCtfTool" target="_blank" rel="noopener">https://github.com/Ganapati/RsaCtfTool</a></p>
+<p>优点：集成的算法更丰富，可以正常调用sage脚本。</p>
+<p>缺点：速度比CTF-RSA-Tool慢，n、e、c等参数要通过终端输入比较麻烦。</p>
+<p>安装可以参考Github上项目的安装指南。</p>
+<p>用python3运行。</p>
+<p>$ <code>python3 RsaCtfTool.py --publickey pubkey.pem --uncipherfile flag.enc</code></p>
+<p>$ <code>python3 RsaCtfTool.py --uncipher     34940946661152652505384725127371968412412443538119822569171955496417633812245 -e 65537 -n 58487247820009414970716333136883008993558343009835955977602531758977268120179</code></p>
+<h2 id="三、SageMath"><a href="#三、SageMath" class="headerlink" title="三、SageMath"></a>三、SageMath</h2><p>很多地方是说选装，我觉得能装还是要装。因为其实容易算出n、p、q、d的题目已经没什么难度了，比赛中也很少出现了。Sage作为很多攻击算法的支撑工具真的很强大。如p、d或m高位攻击要用到CooperSmith算法，通过Sage很快就可以解决。</p>
+<p>项目地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/sagemath/linux/64bit/index.html" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/sagemath/linux/64bit/index.html</a></p>
+<p>目前只有Linux和MacOS版本，如果安装不方便的同学可以尝试它的在线网址<a href="https://sagecell.sagemath.org/。" target="_blank" rel="noopener">https://sagecell.sagemath.org/。</a></p>
+<p>![image-20210220131809549](/Users/zhaoxiangning/Library/Application Support/typora-user-images/image-20210220131809549.png)</p>
+<p>我尝试了一下简单的代码，还是可以正确运行求出结果的。</p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>进入解压后的目录，运行sage即可<br>        <code>./sage</code></p>
+<p>然后把这个程序链接到/usr/bin中，这样以后就可以在任意路径下的命令行中输入命令sage运行它</p>
+<p><code>sudo ln -s ×××(存放sage的绝对路径，如：/home/SageMath/sage) /usr/bin</code></p>
+<h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><p>分解因子：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">zxndeMacBook-Air:~ zhaoxiangning$ sage</span><br><span class="line">┌────────────────────────────────────────────────────────────────────┐</span><br><span class="line">│ SageMath version 9.2, Release Date: 2020-10-24                     │</span><br><span class="line">│ Using Python 3.8.5.<span class="built_in"> Type </span><span class="string">"help()"</span> <span class="keyword">for</span> help.                        │</span><br><span class="line">└────────────────────────────────────────────────────────────────────┘</span><br><span class="line">sage: factor(33)                                                                </span><br><span class="line">3 * 11</span><br><span class="line">sage:</span><br></pre></td></tr></table></figure>
 
-<p> 这两段代码都需要把实际的e、n、p、q的参数值写入代码中执行。p、q的值一般题目不会告诉你，如果n比较小，可以通过在线因式分解网站得到：</p>
-<p><a href="http://www.factordb.com/index.php" target="_blank" rel="noopener">http://www.factordb.com/index.php</a> （推荐先用这个，这个网站是通过数据库查询匹配，数据库里记录了在CTF里面出现过的N分解，速度快）</p>
-<p><a href="https://www.alpertron.com.ar/ECM.HTM" target="_blank" rel="noopener">https://www.alpertron.com.ar/ECM.HTM</a> （速度慢）</p>
-<h3 id="关键函数"><a href="#关键函数" class="headerlink" title="关键函数"></a>关键函数</h3><h4 id="1、RSA加密、解密的函数-pow"><a href="#1、RSA加密、解密的函数-pow" class="headerlink" title="1、RSA加密、解密的函数     pow( )"></a>1、RSA加密、解密的函数     pow( )</h4><p>​    加密：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.<span class="built_in">number</span> import *</span><br><span class="line">c=pow(m,e,n)	<span class="comment"># m的e次方模n</span></span><br></pre></td></tr></table></figure>
-
-<p>​    解密：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from <span class="type">Crypto</span>.<span class="type">Util</span>.number <span class="keyword">import</span> *</span><br><span class="line">m=pow(<span class="built_in">c</span>,d,n) 		#<span class="built_in">c</span>的d次方模n</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、生成随机素数-getPrime"><a href="#2、生成随机素数-getPrime" class="headerlink" title="2、生成随机素数     getPrime( )"></a>2、生成随机素数     getPrime( )</h4><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from <span class="module-access"><span class="module"><span class="identifier">Crypto</span>.</span><span class="module"><span class="identifier">Util</span>.</span></span>number import *</span><br><span class="line">p=get<span class="constructor">Prime(512)</span>     #括号里面数字表示生成的素数的位数 	</span><br><span class="line">get<span class="constructor">StrongPrime(512)</span>  #生成强素数</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、求模逆元-inverse-或invert"><a href="#3、求模逆元-inverse-或invert" class="headerlink" title="3、求模逆元    inverse( )或invert( )"></a>3、求模逆元    inverse( )或invert( )</h4><p>Crypto 包里的 inverse() 函数, 两个参数不互素的时候返回的是除以最大公因数之后的逆元。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">d=inverse(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))	#求e在模 (p<span class="number">-1</span>)*(q<span class="number">-1</span>) 下的逆元</span><br></pre></td></tr></table></figure>
-
-<p>使用 gmpy2 包里的 invert() 函数，两个参数不满足互素时会报错，只有满足互素时正常求逆元。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line">d=invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))		#求e在模 (p<span class="number">-1</span>)*(q<span class="number">-1</span>) 下的逆元</span><br></pre></td></tr></table></figure>
+<p>运行代码：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zxndeMacBook-<span class="string">Air:</span>Partial_m zhaoxiangning$ sage partial_m_exp.sage</span><br><span class="line"><span class="string">x:</span> <span class="number">0x373839313031313233</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -437,10 +470,10 @@
         <!-- Pager -->
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/2021/02/19/RSA解题快速指南/" data-toggle="tooltip" data-placement="top" title="RSA解题快速指南">&larr; Previous Post</a>
-          </li>
           
+          <li class="next">
+            <a href="/2021/02/19/RSA解题快速指南/" data-toggle="tooltip" data-placement="top" title="RSA解题快速指南">Next Post &rarr;</a>
+          </li>
           
         </ul>
 
@@ -482,7 +515,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=RSA入门&body=Hi,I found this website and thought you might like it https://xiangning130.github.io/2021/02/19/RSA入门/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=RSA工具&body=Hi,I found this website and thought you might like it https://xiangning130.github.io/2021/02/20/RSA工具/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -515,7 +548,7 @@
     repo: '',
     owner: '',
     admin: '',
-    id: 'Fri Feb 19 2021 21:45:04 GMT+0800', // Ensure uniqueness and length less than 50
+    id: 'Sat Feb 20 2021 11:16:17 GMT+0800', // Ensure uniqueness and length less than 50
     distractionFreeMode: false, // Facebook-like distraction free mode
     perPage: 10 ,
     pagerDirection: 'last',
@@ -569,7 +602,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#RSA原理"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">RSA原理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#首先，牢记RSA加密中出现的以下几个关键参数："><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">首先，牢记RSA加密中出现的以下几个关键参数：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#接下来，牢记下面两个加密和解密公式："><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">接下来，牢记下面两个加密和解密公式：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#加密：-c-m-e-mod-n"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">加密：    c&#x3D; m^e mod n</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#解密：-m-c-d-mod-n"><span class="toc-nav-number">1.0.4.</span> <span class="toc-nav-text">解密：    m&#x3D;c^d mod n</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text"></span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#简单RSA代码的实现"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">简单RSA代码的实现</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#RSA加密"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">RSA加密</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#RSA解密"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">RSA解密</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#关键函数"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">关键函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1、RSA加密、解密的函数-pow"><span class="toc-nav-number">2.3.1.</span> <span class="toc-nav-text">1、RSA加密、解密的函数     pow( )</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2、生成随机素数-getPrime"><span class="toc-nav-number">2.3.2.</span> <span class="toc-nav-text">2、生成随机素数     getPrime( )</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3、求模逆元-inverse-或invert"><span class="toc-nav-number">2.3.3.</span> <span class="toc-nav-text">3、求模逆元    inverse( )或invert( )</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一、CTF-RSA-tool"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">一、CTF-RSA-tool</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二、RSACtfTool"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">二、RSACtfTool</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#三、SageMath"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">三、SageMath</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装"><span class="toc-nav-number">3.0.0.1.</span> <span class="toc-nav-text">安装</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#运行"><span class="toc-nav-number">3.0.0.2.</span> <span class="toc-nav-text">运行</span></a></li></ol></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
