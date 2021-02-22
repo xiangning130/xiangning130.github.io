@@ -217,14 +217,14 @@
 
           
           <li>
-            <a href="/archive/">Archives</a>
+            <a href="/categories/">Categories</a>
           </li>
           
           
 
           
           <li>
-            <a href="/categories/">Categories</a>
+            <a href="/archive/">Archives</a>
           </li>
           
           
@@ -290,7 +290,7 @@
   <style type="text/css">
     header.intro-header {
        /*post*/
-        background-image: url('/img/got.jpg');
+        background-image: url('/img/blogs/queen.jpg');
       
     }
 
@@ -405,10 +405,9 @@
 <p>​        若无法解出，尝试用RSACtfTool   ( 参数  –publickey  –uncipherfile）</p>
 <p>​        $ <code>python3 RsaCtfTool.py --publickey pubkey.pem --uncipherfile flag.enc</code></p>
 <h3 id="4、已知公钥pubkey和待解密文件flag-enc，但n较大不好分解"><a href="#4、已知公钥pubkey和待解密文件flag-enc，但n较大不好分解" class="headerlink" title="4、已知公钥pubkey和待解密文件flag.enc，但n较大不好分解"></a>4、已知公钥pubkey和待解密文件flag.enc，但n较大不好分解</h3><p>​        CTF-RSA-Tools-master和RSACtfTool都集成很多Attack方法.</p>
-<p>​        CTF-RSA-Tools-master  (参数 –verbose -k  –decrypt)</p>
-<p>​        $ <code>python solve.py --verbose -k pubkey.pem --decrypt flag.enc</code></p>
-<p>​        RSACtfTool (参数 –publickey –uncipherfile)</p>
+<p>​                RSACtfTool (参数 –publickey –uncipherfile)</p>
 <p>​        $ <code>python3 RsaCtfTool.py --publickey pubkey.pem --uncipherfile flag.enc</code></p>
+<p>如果两个工具都无法解出，就要考虑用特殊算法来解题了。</p>
 <h2 id="二、利用特殊算法的解题"><a href="#二、利用特殊算法的解题" class="headerlink" title="二、利用特殊算法的解题"></a>二、利用特殊算法的解题</h2><h3 id="1、共模攻击"><a href="#1、共模攻击" class="headerlink" title="1、共模攻击"></a>1、共模攻击</h3><p>​        如果有两组待解密文件和key文件，且两组的模N都相同，可以用<strong>共模攻击。</strong></p>
 <p>​        CTF-RSA-Tools-master：将两组的N、e、c写入share_N.txt，运行：</p>
 <p>​        $ <code>python solve.py --i share_N.txt</code> </p>
