@@ -141,7 +141,7 @@
   <link rel="canonical" href="https://xiangning130.github.io/2021/02/24/RSA-WP——基础题型篇/">
   <title>
     
-    RSA WP——基础题型篇 - Viva La Vida
+    RSA WP——基础题型篇 - null
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -187,7 +187,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Viva La Vida</a>
+      <a class="navbar-brand" href="/"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -210,13 +210,6 @@
 
           
           <li>
-            <a href="/categories/">Categories</a>
-          </li>
-          
-          
-
-          
-          <li>
             <a href="/about/">About</a>
           </li>
           
@@ -225,6 +218,13 @@
           
           <li>
             <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
           </li>
           
           
@@ -290,7 +290,7 @@
   <style type="text/css">
     header.intro-header {
        /*post*/
-        background-image: url('/img/blogs/strike.jpg');
+        background-image: url('/img/blogs/queen.jpg');
       
     }
 
@@ -311,7 +311,11 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#[object Object]" title="[object Object]">[object Object]</a>
+              <a class="tag" href="/tags/#Crypto" title="Crypto">Crypto</a>
+              
+              <a class="tag" href="/tags/#RSA" title="RSA">RSA</a>
+              
+              <a class="tag" href="/tags/#CTF" title="CTF">CTF</a>
               
             </div>
             <h1>RSA WP——基础题型篇</h1>
@@ -326,11 +330,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
+              Estimated Reading Time <span class="post-count">5</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">0</span> In Total
+              Words <span class="post-count">1.2k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -392,7 +396,47 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        
+        <p> RSA基本原理、工具安装好以后，就可以各大CTF平台有关RSA的题目刷一遍了。这篇博客记录了一些基础题型，没有什么太大难度，一般就是利用Ctf-RSA-tool或者RSACtfTool这些工具直接就能解出。大家主要通过这些题目进一步理解n、e、d、p、q在加密和解密中间的关系和作用，同时熟悉工具的使用。同时大家在提交完flag之后也可以看看别人的wp，有助于自己拓宽思路，为后续难度更大的解题作知识的积累。</p>
+<h2 id="一、p、q、e已知"><a href="#一、p、q、e已知" class="headerlink" title="一、p、q、e已知"></a>一、p、q、e已知</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><a href="https://adworld.xctf.org.cn/task/writeup?type=crypto&amp;id=5114&amp;number=5&amp;grade=0&amp;page=1" target="_blank" rel="noopener">https://adworld.xctf.org.cn/task/writeup?type=crypto&amp;id=5114&amp;number=5&amp;grade=0&amp;page=1</a></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>p和q是两个大素数，pq=N，e和N共同组成公钥。题目要求解出d，d是私钥的关键参数，d是e在模(p-1)(q-1)下的逆元。这里的p、q、e都已知，解题就很简单。</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><p>1、利用工具</p>
+<p>求出N=p*q后代入Ctf-RSA-tool，–private就是求私钥的参数。可以得出私钥，也同时将d的值打印了出来。</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ python solve.py --verbose --private -N <span class="number">2135733555619387051</span> -e <span class="number">17</span> -p <span class="number">473398607161</span> -q <span class="number">4511491</span></span><br><span class="line">DEBUG: factor N: try past ctf primes</span><br><span class="line">DEBUG: factor N: try Gimmicky Primes method</span><br><span class="line">DEBUG: factor N: try Wiener's attack</span><br><span class="line">DEBUG: Starting new HTTP connection (<span class="number">1</span>): www.factordb.com:<span class="number">80</span></span><br><span class="line">DEBUG: http://www.factordb.com:<span class="number">80</span> <span class="string">"<span class="keyword">GET</span> /index.php?query=2135733555619387051 HTTP/1.1"</span> <span class="number">200</span> <span class="number">899</span></span><br><span class="line">DEBUG: http://www.factordb.com:<span class="number">80</span> <span class="string">"<span class="keyword">GET</span> /index.php?id=4511491 HTTP/1.1"</span> <span class="number">200</span> <span class="number">807</span></span><br><span class="line">DEBUG: http://www.factordb.com:<span class="number">80</span> <span class="string">"<span class="keyword">GET</span> /index.php?id=473398607161 HTTP/1.1"</span> <span class="number">200</span> <span class="number">836</span></span><br><span class="line">DEBUG: d = 0x1be550de4f93c61L</span><br><span class="line">INFO: </span><br><span class="line">p=<span class="number">4511491</span></span><br><span class="line">q=<span class="number">473398607161</span></span><br><span class="line">d=<span class="number">125631357777427553</span></span><br><span class="line"></span><br><span class="line">INFO: private key:</span><br><span class="line">-----BEGIN RSA PRIVATE KEY-----</span><br><span class="line">MDcCAQACCB2jplptk1arAgERAggBvlUN5Pk8YQIDRNcDAgVuOMF9OQIDNKRrAgVU</span><br><span class="line">SYTnSQIDDuDJ</span><br><span class="line">-----END RSA PRIVATE KEY-----</span><br></pre></td></tr></table></figure>
+
+<p>2、编写脚本</p>
+<p>或者通过脚本，用invert函数求e在模(p-1)*(q-1)下的逆元，即为d</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line"></span><br><span class="line">p = <span class="number">473398607161</span> </span><br><span class="line">q = <span class="number">4511491</span></span><br><span class="line">e = <span class="number">17</span></span><br><span class="line"></span><br><span class="line">d = invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))</span><br><span class="line">print (d)</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、Normal-RSA"><a href="#二、Normal-RSA" class="headerlink" title="二、Normal RSA"></a>二、Normal RSA</h2><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><p><a href="https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=0&amp;id=5115&amp;page=1" target="_blank" rel="noopener">https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=0&amp;id=5115&amp;page=1</a></p>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>附件解压以后就是一个flag.enc和public.pem。后缀为enc结尾的一般都是密文，后缀pem是密钥。public.pem很明显是公钥了。已知密文和公钥可以用工具尝试解密。</p>
+<h3 id="解题-1"><a href="#解题-1" class="headerlink" title="解题"></a>解题</h3><p>利用工具RSACtfTool，即可解出flag。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ python3 RsaCtfTool.py --publickey pubkey.pem --uncipherfile flag.enc  </span><br><span class="line"><span class="keyword">private</span> argument <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span>, the <span class="keyword">private</span> key will <span class="keyword">not</span> be displayed, even <span class="keyword">if</span> recovered.</span><br><span class="line"></span><br><span class="line">[*] Testing key pubkey.pem.</span><br><span class="line">[*] Performing smallfraction attack on pubkey.pem.</span><br><span class="line">[*] Performing wiener attack on pubkey.pem.</span><br><span class="line"><span class="number">100</span>%|███████████████████████████████████████████████████████████████████████████████| <span class="number">11</span>/<span class="number">11</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">46603.38</span>it/s]</span><br><span class="line"><span class="number">100</span>%|██████████████████████████████████████████████████████████████████████████████| <span class="number">11</span>/<span class="number">11</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">207825.87</span>it/s]</span><br><span class="line">[*] Performing pastctfprimes attack on pubkey.pem.</span><br><span class="line"><span class="number">100</span>%|██████████████████████████████████████████████████████████████████████████████| <span class="number">71</span>/<span class="number">71</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">653060.49</span>it/s]</span><br><span class="line">[*] Performing wolframalpha attack on pubkey.pem.</span><br><span class="line">[!] Wolfram Alpha <span class="keyword">is</span> <span class="keyword">not</span> enabled, install the lib.</span><br><span class="line">[!] Wolfram Alpha <span class="keyword">is</span> <span class="keyword">not</span> enabled, check <span class="keyword">if</span> ENV WA_API_KEY <span class="keyword">is</span> <span class="keyword">set</span>.</span><br><span class="line">[!] follow: https:<span class="comment">//products.wolframalpha.com/api/documentation/</span></span><br><span class="line">[!] export WA_API_KEY=XXXXXX-XXXXXXXXXX</span><br><span class="line">[*] Performing factordb attack on pubkey.pem.</span><br><span class="line"></span><br><span class="line">Results <span class="keyword">for</span> pubkey.pem:</span><br><span class="line"></span><br><span class="line">Unciphered data :</span><br><span class="line">HEX : <span class="number">0x0002c0fe04e3260e5b8700504354467b323536625f69355f6d336469756d7d0a</span></span><br><span class="line">INT (big endian) : <span class="number">4865677769286717240419296208145914517832094464845949055035370987525602570</span></span><br><span class="line">INT (little endian) : <span class="number">4744739824694533032519230312074638919149793854447671791679980959756701401600</span></span><br><span class="line">STR : b<span class="string">'\x00\x02\xc0\xfe\x04\xe3&amp;\x0e[\x87\x00PCTF&#123;256b_i5_m3dium&#125;\n'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、wtc-rsa-bbq"><a href="#三、wtc-rsa-bbq" class="headerlink" title="三、wtc_rsa_bbq"></a>三、wtc_rsa_bbq</h2><h3 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h3><p><a href="https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=4758&amp;page=1" target="_blank" rel="noopener">https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=4758&amp;page=1</a></p>
+<h3 id="解题-2"><a href="#解题-2" class="headerlink" title="解题"></a>解题</h3><p>下载下来不知道什么文件格式的附件，用kali 自带的binwalk工具分离</p>
+<p>命令格式是  binwalk -e 文件名</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">┌──(kali㉿kali)-[~/桌面]</span></span><br><span class="line"><span class="string">└─$</span> <span class="string">binwalk</span> <span class="string">-e</span> <span class="string">cry200</span>        </span><br><span class="line"></span><br><span class="line"><span class="string">DECIMAL</span>       <span class="string">HEXADECIMAL</span>     <span class="string">DESCRIPTION</span></span><br><span class="line"><span class="string">--------------------------------------------------------------------------------</span></span><br><span class="line"><span class="number">0</span>             <span class="number">0x0</span>             <span class="string">Zip</span> <span class="string">archive</span> <span class="string">data,</span> <span class="string">at</span> <span class="string">least</span> <span class="string">v2.0</span> <span class="string">to</span> <span class="string">extract,</span> <span class="attr">compressed size:</span> <span class="number">1079</span><span class="string">,</span> <span class="attr">uncompressed size:</span> <span class="number">1074</span><span class="string">,</span> <span class="attr">name:</span> <span class="string">cipher.bin</span></span><br><span class="line"><span class="number">1119</span>          <span class="number">0x45F</span>           <span class="string">Zip</span> <span class="string">archive</span> <span class="string">data,</span> <span class="string">at</span> <span class="string">least</span> <span class="string">v2.0</span> <span class="string">to</span> <span class="string">extract,</span> <span class="attr">compressed size:</span> <span class="number">125</span><span class="string">,</span> <span class="attr">uncompressed size:</span> <span class="number">1584</span><span class="string">,</span> <span class="attr">name:</span> <span class="string">key.pem</span></span><br><span class="line"><span class="number">1390</span>          <span class="number">0x56E</span>           <span class="string">End</span> <span class="string">of</span> <span class="string">Zip</span> <span class="string">archive,</span> <span class="attr">footer length:</span> <span class="number">22</span></span><br></pre></td></tr></table></figure>
+
+<p>可得一个文件夹 里面有cipher.bin和key.pem。 .bin是一个二进制的密文。很明显这题依然是一个密文一个公钥，用CTF-RSA-tool来解。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnyj61wg9zj30bk00v0sz.jpg" alt="image-20210224125238758"></p>
+<h2 id="四、cr4-poor-rsa"><a href="#四、cr4-poor-rsa" class="headerlink" title="四、cr4-poor-rsa"></a>四、cr4-poor-rsa</h2><h3 id="题目-3"><a href="#题目-3" class="headerlink" title="题目"></a>题目</h3><p><a href="https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=5030&amp;page=2" target="_blank" rel="noopener">https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=5030&amp;page=2</a></p>
+<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>解压以后一个flag.b64和一个key.pub。flag.b64打开是base64编码，应该是base64编码后的密文，key.pub是公钥。说明加密算法很可能就是先进行了RSA加密，再进行了一次base64的编码。</p>
+<p>所以先把密文用base64解码，再和key带入工具就可解出flag。</p>
+<h3 id="解题-3"><a href="#解题-3" class="headerlink" title="解题"></a>解题</h3><p>base64的解码可以用脚本base64dec.py</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="built_in">text</span> = <span class="built_in">open</span>(sys.argv[<span class="number">1</span>]).<span class="built_in">read</span>()</span><br><span class="line">#<span class="built_in">print</span> <span class="built_in">text</span></span><br><span class="line">jarFile = <span class="built_in">open</span>(sys.argv[<span class="number">2</span>],<span class="string">"wb+"</span>)</span><br><span class="line">jarFile.<span class="built_in">write</span>(base64.b64decode(<span class="built_in">text</span>))</span><br><span class="line">jarFile.<span class="built_in">close</span>()</span><br><span class="line"><span class="built_in">print</span> <span class="string">"success"</span></span><br></pre></td></tr></table></figure>
+
+<p>这段代码运行带两个参数， python base64dec.py [输入文件名 输出文件名]</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python base64dec<span class="selector-class">.py</span> flag<span class="selector-class">.b64</span>  flag.enc</span><br><span class="line">success</span><br></pre></td></tr></table></figure>
+
+<p>将输出的flag.enc和key.pub代入CTF-RSA-tool。可得flag。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">python</span> <span class="string">solve.py</span> <span class="string">--decrypt</span> <span class="number">2</span><span class="string">/flag.enc</span> <span class="string">--key</span> <span class="number">2</span><span class="string">/key.pub</span> </span><br><span class="line"><span class="attr">INFO:</span> <span class="string">m=</span></span><br><span class="line"><span class="attr">INFO:</span> <span class="number">103145807013978985540355910125640487400385927671574445477620708860454905704702407706197052505510447088948250826538250</span></span><br><span class="line"><span class="attr">INFO:</span> <span class="string">?&amp;?d??#H?u6Lۮ??:ALEXCTF&#123;SMALL_PRIMES_ARE_BAD&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Tips：</p>
+<p>这个工具我修改了一些代码，在lib/RSAulits.py中 Attack() 函数中</p>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">self</span>.c:</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"><span class="built_in">self</span>.plain = <span class="built_in">pow</span>(<span class="built_in">self</span>.c, <span class="built_in">self</span>.d, <span class="built_in">self</span>.n)</span><br><span class="line"><span class="built_in">log</span>.info (<span class="comment">'m=')</span></span><br><span class="line"><span class="built_in">log</span>.info (<span class="built_in">self</span>.plain)</span><br><span class="line"><span class="meta"># 打印解密出来的明文</span></span><br><span class="line"><span class="built_in">log</span>.info(libnum.n2s(<span class="built_in">self</span>.plain))</span><br></pre></td></tr></table></figure>
+
+<p>我增加了两句代码，让程序直接将m明文的数值也显示出来。这种开源的代码大家可以自行增加一些输出中间数据的语句，方便在一些更复杂的题目中加以利用。</p>
+
 
         <hr>
         <!-- Pager -->
@@ -530,7 +574,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一、p、q、e已知"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">一、p、q、e已知</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#题目"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">题目</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分析"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">分析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#解题"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">解题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二、Normal-RSA"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">二、Normal RSA</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#题目-1"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">题目</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分析-1"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">分析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#解题-1"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">解题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#三、wtc-rsa-bbq"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">三、wtc_rsa_bbq</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#题目-2"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">题目</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#解题-2"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">解题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#四、cr4-poor-rsa"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">四、cr4-poor-rsa</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#题目-3"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">题目</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分析-2"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">分析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#解题-3"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">解题</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -552,7 +596,11 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#[object Object]" title="[object Object]">[object Object]</a>
+            <a class="tag" href="/tags/#Crypto" title="Crypto">Crypto</a>
+            
+            <a class="tag" href="/tags/#RSA" title="RSA">RSA</a>
+            
+            <a class="tag" href="/tags/#CTF" title="CTF">CTF</a>
             
           </div>
         </section>
