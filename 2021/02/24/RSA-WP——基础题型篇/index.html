@@ -396,7 +396,8 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p> RSA原理基本掌握、工具安装好以后，就可以各大CTF平台有关RSA的题目刷一遍了。这篇博客记录了一些基础题型，没有什么太大难度，一般就是利用Ctf-RSA-tool或者RSACtfTool这些工具直接就能解出。大家主要通过这些题目进一步理解n、e、d、p、q在加密和解密中间的关系和作用，同时熟悉工具的使用。同时大家在提交完flag之后也可以看看别人的wp，有助于自己拓宽思路，为后续难度更大的解题作知识的积累。</p>
+        <p> RSA原理基本掌握、工具安装好以后，就可以各大CTF平台有关RSA的题目刷一遍了。这篇博客记录了一些基础题型，没有什么太大难度，一般就是利用Ctf-RSA-tool或者RSACtfTool这些工具直接就能解出。</p>
+<p>大家主要通过这些题目进一步理解n、e、d、p、q在加密和解密中间的关系和作用，同时熟悉工具的使用，尝试用python编写简单的攻击脚本。同时大家在提交完flag之后也可以看看别人的wp，有助于自己拓宽思路，为后续难度更大的解题作知识的积累。</p>
 <h2 id="一、p、q、e已知"><a href="#一、p、q、e已知" class="headerlink" title="一、p、q、e已知"></a>一、p、q、e已知</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><a href="https://adworld.xctf.org.cn/task/writeup?type=crypto&amp;id=5114&amp;number=5&amp;grade=0&amp;page=1" target="_blank" rel="noopener">https://adworld.xctf.org.cn/task/writeup?type=crypto&amp;id=5114&amp;number=5&amp;grade=0&amp;page=1</a></p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>p和q是两个大素数，pq=N，e和N共同组成公钥。题目要求解出d，d是私钥的关键参数，d是e在模(p-1)(q-1)下的逆元。这里的p、q、e都已知，解题就很简单。</p>
 <h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><p>1、利用工具</p>
