@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-xxxxxx-xx"></script>
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-xxxxxx-xx');
+  </script>
+  
+
+  <!-- Baidu Tongji -->
+  
+  <script type="text/javascript">
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  
+
+  <!-- Baidu Push -->
+  
+  <script>
+    (function() {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc" />
+  <meta name="baidu-site-verification" content="PpzM9WxOJU" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CTFer&#39;s blog" />
+  <meta name="keyword" content="CTF" />
+  <link rel="shortcut icon" href="/" />
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/beantech.min.css" />
+
+  <!-- Pygments Highlight CSS -->
+  
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
+
+
+  
+  <!-- wave start -->
+  <link rel="stylesheet" href="/css/wave.css" />
+  <!-- wave end -->
+  
+
+  
+  <!-- top start (article top hot config) -->
+  <link rel="stylesheet" href="/css/top.css" />
+  <!-- top end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/scroll.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+  <!-- viewer start (Picture preview) -->
+  <link rel="stylesheet" href="/css/viewer.min.css" />
+  <!-- viewer end -->
+  
+
+  
+  <!-- Search start -->
+  <link rel="stylesheet" href="/css/search.css" />
+  <!-- Search end -->
+  
+
+  
+  <!-- ThemeColor start -->
+  <link rel="stylesheet" href="/css/themecolor.css" />
+  <!-- ThemeColor end -->
+  
+
+  
+
+  
+  <!-- gitalk start -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+  <link rel="stylesheet" href="/css/gitalk.css" />
+  <!-- gitalk end -->
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+    href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="https://xiangning130.github.io/2021/02/25/RSA-buffet/">
+  <title>
+    
+    RSA buffet - null
+    
+  </title>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<!-- hack iOS CSS :active style -->
+
+<body ontouchstart="" class="body--home">
+	<!-- ThemeColor -->
+	
+	<!-- ThemeColor -->
+<!-- <div class="toggle" onclick="document.body.classList.toggle('body--dark')">Switch Color</div> -->
+
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons bright-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+
+	
+
+	<!-- Gitter -->
+	
+	<!-- Gitter -->
+<!-- Docs:https://gitter.im/?utm_source=left-menu-logo -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'your-community/your-room'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+	
+
+	<!-- Navigation (contains search)-->
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Viva La Vida</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">Home</a>
+          </li>
+
+          
+
+          
+          
+
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/archive/">Archives</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/categories/">Categories</a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a href="/tags/">Tags</a>
+          </li>
+          
+          
+
+          
+          <li><a class="popup-trigger" title="Search"><span class="search-icon"></span>Search</a></li>
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+
+<script>
+  // Drop Bootstarp low-performance Navbar
+  // Use customize navbar with high-quality material design animation
+  // in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+	<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    header.intro-header {
+       /*post*/
+        background-image: url('/img/blogs/queen.jpg');
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Crypto" title="Crypto">Crypto</a>
+              
+              <a class="tag" href="/tags/#RSA" title="RSA">RSA</a>
+              
+              <a class="tag" href="/tags/#CTF" title="CTF">CTF</a>
+              
+            </div>
+            <h1>RSA buffet</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by Olivia on
+              2021-02-25
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">8</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.9k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+	<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h3 id="RSA-buffet"><a href="#RSA-buffet" class="headerlink" title="RSA-buffet"></a>RSA-buffet</h3><p>题目地址：<a href="https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=5544&amp;page=5" target="_blank" rel="noopener">https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=5544&amp;page=5</a></p>
+<p>这道题很有趣！</p>
+<p>附件下载下来有5个密文，10个密钥，一个加密算法，一个明文生成算法。</p>
+<p>先看下明文生成算法：generate-plaintexts.py，里面给出了关键算法secret-sharing的项目地址，<a href="https://github.com/blockstack/secret-sharing。" target="_blank" rel="noopener">https://github.com/blockstack/secret-sharing。</a></p>
+<p>非常好，帮助我们理解第12行的split_secret()算法。但似乎项目的readme文档似乎没讲清楚是怎么split的，只说了“A library for sharding and sharing secrets (like Bitcoin private keys), using shamir’s secret sharing scheme.”  用shamir’s secret sharing scheme，类似比特币。继续搜索shamir’s secret sharing scheme。找到关于Shamir’s Secret Sharing <a href="https://blog.csdn.net/weixin_26722031/article/details/108136677" target="_blank" rel="noopener">https://blog.csdn.net/weixin_26722031/article/details/108136677</a></p>
+<p>这篇文章讲的挺清楚的。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnzwqbj2h3j30rk04ggnw.jpg" alt="image-20210225172728281"></p>
+<p>所以现在我们的情况就是拿到了这5个信封，放在ciphertext1～5里。是这样吗？nonono….还没这么简单。我们的明文的构成是怎样的看下generate-plaintexts代码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="comment"># pip install secret-sharing         </span></span><br><span class="line"><span class="comment"># https://github.com/blockstack/secret-sharing		#给出了secret-sharing的项目地址，帮助研究代码</span></span><br><span class="line">from secretsharing import PlaintextToHexSecretSharer as SS</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="keyword">open</span>(<span class="string">'message1.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">  PLAINTEXTS = [f.read()] * <span class="number">5</span>         			 <span class="comment"># plaintexs是message1重复5遍</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">2</span>, <span class="number">6</span>):	<span class="comment">#从message2～5</span></span><br><span class="line">  <span class="keyword">with</span> <span class="keyword">open</span>(<span class="string">'message'</span> + <span class="keyword">str</span>(i) + <span class="string">'.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    msg = f.read()													<span class="comment"># msg是message 2～5.txt</span></span><br><span class="line">  shares = SS.split_secret(msg, i, <span class="number">5</span>)				</span><br><span class="line">  <span class="comment"># msg用shamir算法拆分并加密成五份,i是阈值，就是最少需要多少piece才能还原。看来message5要5个pieces才能还原</span></span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">5</span>):</span><br><span class="line">    PLAINTEXTS[j] += shares[j] + <span class="string">'\n'</span>			<span class="comment">#5份写在一个PLAINTEXTS i里，放在原有的内容后面</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">5</span>):</span><br><span class="line">  <span class="keyword">with</span> <span class="keyword">open</span>(<span class="string">'plaintext-'</span> + <span class="keyword">str</span>(j+<span class="number">1</span>) + <span class="string">'.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:				<span class="comment">#5个PLAINTEXTS对应5个ciphertext</span></span><br><span class="line">    <span class="comment">#f.write(PLAINTEXTS[j])</span></span><br><span class="line">    print(PLAINTESTS[j])</span><br></pre></td></tr></table></figure>
+
+<p>所以也就是说，PLAINTEXTS[k]的组成是: message1+message 2(piece k)+ message 3（piece k） +message 4(piece k) +……+ message5(piece k)。应该是把5个PLAIINTEXTS带入encrypt.py里面加密后得到的5个ciphertext。</p>
+<p>看看加密算法encrypt.py，是RSA和AES混合加密，算法里加密、解密的算法都已经给出。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span><span class="params">(public_key, message)</span>:</span>					<span class="comment">#加密算法</span></span><br><span class="line">  <span class="string">"""Encrypt a message with a given public key.</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  Takes in a public_key generated by Crypto.PublicKey.RSA, which must be of</span></span><br><span class="line"><span class="string">  size exactly 4096</span></span><br><span class="line"><span class="string">  """</span></span><br><span class="line">  symmetric_key = get_rand_bytes(<span class="number">32</span>)</span><br><span class="line">  msg_header = PKCS1_OAEP.new(public_key).encrypt(symmetric_key) </span><br><span class="line">  <span class="keyword">assert</span> len(msg_header) == <span class="number">512</span></span><br><span class="line">  msg_iv = get_rand_bytes(<span class="number">16</span>)</span><br><span class="line">  msg_body = AES.new(symmetric_key,</span><br><span class="line">      mode=AES.MODE_CFB,</span><br><span class="line">      IV=msg_iv).encrypt(message)          </span><br><span class="line">      <span class="comment"># 利用RSA算法加密AES的密钥 symmetric_key，放在文件头里msg—header， msg——iv是AES加密的块长度, msg_body是AES加密密文</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> msg_header + msg_iv + msg_body</span><br></pre></td></tr></table></figure>
+
+<p>这段是加密的算法，symmetric_key是AES的加密密钥，经过PKCS1_OAEP加密后，保存在密文的头部msg_header。PKCS1_OAEP是利用RSA进行的加密算法，和我们前面做的那个PKCS1_v1_5算法很类似。解密算法已经给出，但是需要RSA的密钥。</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="attr">__name__=="__main__":</span></span><br><span class="line">  <span class="comment"># Test!</span></span><br><span class="line">  <span class="attr">message</span> = <span class="string">"This is my test message.  It's kind of ssilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregsilly.wireheirhgwieruhgwieurghwiregilly.wireheirhgwieruhgwieurghwireg"</span></span><br><span class="line">  <span class="attr">private_key</span> = RSA.generate(<span class="number">4096</span>)</span><br><span class="line">  <span class="attr">public_key</span> = private_key.publickey()</span><br><span class="line">  <span class="attr">ciphertext</span> = encrypt(public_key, message)</span><br><span class="line">  <span class="keyword">assert</span> <span class="attr">message</span> == decrypt(private_key, ciphertext)    <span class="comment"># 需要用private_keyl来解密</span></span><br></pre></td></tr></table></figure>
+
+<p>困惑的是，我们有5个密文，然而有10个公钥。先看看这10个公钥有几个能解出对应的私钥来。</p>
+<p>先用RsaCtfTool工具把key-0.pem～key-9.pem对应的prikey生成出来。类似这样的命令：</p>
+<p><code>$ python3 RsaCtfTool.py  --private --publickey key-3.pem --output prikey-3.pem</code></p>
+<p>一波下来，key0、1、2、3、6对应的密钥prikey-0、1、2、3、6可以解出来。</p>
+<p>先写个exp把这几个私钥代入解密函数里面看看能否解的出来。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES,PKCS1_OAEP</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line">c_symmetric_key=[<span class="number">0</span>]*<span class="number">6</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span><span class="params">(private_key, ciphertext)</span>:</span></span><br><span class="line">  <span class="string">"""Decrypt a message with a given private key.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Takes in a private_key generated by Crypto.PublicKey.RSA, which must be of</span></span><br><span class="line"><span class="string">  size exactly 4096</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  If the ciphertext is invalid, return None</span></span><br><span class="line"><span class="string">  """</span></span><br><span class="line">  <span class="keyword">if</span> len(ciphertext) &lt; <span class="number">512</span> + <span class="number">16</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">  msg_header = ciphertext[:<span class="number">512</span>]</span><br><span class="line">  msg_iv = ciphertext[<span class="number">512</span>:<span class="number">512</span>+<span class="number">16</span>]</span><br><span class="line">  msg_body = ciphertext[<span class="number">512</span>+<span class="number">16</span>:]</span><br><span class="line">  <span class="keyword">try</span>:</span><br><span class="line">    symmetric_key = PKCS1_OAEP.new(private_key).decrypt(msg_header)</span><br><span class="line">  <span class="keyword">except</span> ValueError:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">  <span class="keyword">if</span> len(symmetric_key) != <span class="number">32</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">  <span class="keyword">return</span> AES.new(symmetric_key,</span><br><span class="line">      mode=AES.MODE_CFB,</span><br><span class="line">      IV=msg_iv).decrypt(msg_body)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">  <span class="comment"># 将每个ciphertext1～5 都和已知的5个密钥prikey0、1、2、3、6 一起代入decrypt</span></span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):				</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'ciphertext-'</span> + str(j) + <span class="string">'.bin'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">      c_symmetric_key[j]=f.read()		</span><br><span class="line">      <span class="comment">#print c_symmetric_key[j]</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>]:</span><br><span class="line">      private_key = RSA.importKey(open(<span class="string">'prikey-'</span>+str(x)+<span class="string">'.pem'</span>,<span class="string">'r'</span>).read())</span><br><span class="line">      <span class="comment">#print private_key</span></span><br><span class="line">      plaintext = decrypt(private_key, c_symmetric_key[j])</span><br><span class="line">      <span class="keyword">print</span> <span class="string">"plaintext["</span>,j,<span class="string">"]["</span>,x,<span class="string">"]:"</span>,plaintext</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">plaintext[<span class="string"> 1 </span>][<span class="symbol"> 0 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 1 </span>][<span class="symbol"> 1 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 1 </span>][<span class="symbol"> 2 </span>]: Congratulations, you decrypted a ciphertext!  One down, two to go :)</span><br><span class="line">1-32a1cd9f414f14cff6685879444acbe41e5dba6574a072cace6e8d0eb338ad64910897369b7589e6a408c861c8e708f60fbbbe91953d4a73bcf1df11e1ecaa2885bed1e5a772bfed42d776a9</span><br><span class="line">1-e0c113fa1ebea9318dd413bf28308707fd660a5d1417fbc7da72416c8baaa5bf628f11c660dcee518134353e6ff8d37c</span><br><span class="line">1-1b8b6c4e3145a96b1b0031f63521c8df58713c4d6d737039b0f1c0750e16e1579340cfc5dadef4e96d6b95ecf89f52b8136ae657c9c32e96bf4384e18bd8190546ff5102cd006be5e1580053</span><br><span class="line">1-c332b8b93a914532a2dab045ea52b86d4d3950a990b5fc5e041dce9be1fd3912f9978cad009320e18f4383ca71d9d79114c9816b5f950305a6dd19c9f458695d52</span><br><span class="line"></span><br><span class="line">plaintext[<span class="string"> 1 </span>][<span class="symbol"> 3 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 1 </span>][<span class="symbol"> 6 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 2 </span>][<span class="symbol"> 0 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 2 </span>][<span class="symbol"> 1 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 2 </span>][<span class="symbol"> 2 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 2 </span>][<span class="symbol"> 3 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 2 </span>][<span class="symbol"> 6 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 3 </span>][<span class="symbol"> 0 </span>]: Congratulations, you decrypted a ciphertext!  One down, two to go :)</span><br><span class="line">3-17e568ddc3ed3e6fe330ca47a2b27a2707edd0e0839df59fe9114fe6c08c6fc1ac1c3c8d9ab3cf7860dac103dff464d4c215e197b54f0cb46993912c3d0220a3eb1b80adf33ee2cc59b0372c</span><br><span class="line">3-b69efb4f9c5205175a4c9afb9d3c7bef728d9fb6c9cc1241411b31d4bd18744660391a330cefa8a86af8d2b80c881cfa</span><br><span class="line">3-572e70c5acfbe8b4c2cbd47217477d217da88c256ff2586af6a18391972c258bbea6143e7cd2ff6d39393efeb64d51d9318a2c337e50e2d764a42173bc3a1d5c7c8f24b64043daf5d2a8e9f4</span><br><span class="line">3-e9e6850880eb0a44d36fe9f2e5a458c6da3977b7fcd285afa27e9bfc116b1408570991504116b81864b03a7060bfd5d3fb6e007bb346f276d749befd545d1489c4</span><br><span class="line"></span><br><span class="line">plaintext[<span class="string"> 3 </span>][<span class="symbol"> 1 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 3 </span>][<span class="symbol"> 2 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 3 </span>][<span class="symbol"> 3 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 3 </span>][<span class="symbol"> 6 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 4 </span>][<span class="symbol"> 0 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 4 </span>][<span class="symbol"> 1 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 4 </span>][<span class="symbol"> 2 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 4 </span>][<span class="symbol"> 3 </span>]: Congratulations, you decrypted a ciphertext!  One down, two to go :)</span><br><span class="line">4-4a87367d053c533fd995032ed1e651487cb5dc1e0b1cb70a7662b152c73650f039a60f391a52f2413f43bd54eb7b12c41b42f31ac557edd4bfe46a396a8cdbe19dc9d8121924f43be51c976d</span><br><span class="line">4-abbbcee71f140198ff8c50f51069465075979c31d32b052e7ae82ec7f6783aef7b41a597f9504d3340967b8d70cbe5a3</span><br><span class="line">4-35fbbe40058e20463547b363d1f164c0bbbb97cfd9ffe7619bce31a59392f0e9625a2cd035276e09c4df3c0932f22bd322f16e375c7c7fd88da0f972832707eb549ff1e776db37649019ebce</span><br><span class="line">4-12b466934911986bda845d8d26710a12250d210546f46716c78d7a17b1f2c893b95b934c8c7beafcf81a3123eb2ea05ca89101b23349e455794a8d56608c8ee49dd</span><br><span class="line"></span><br><span class="line">plaintext[<span class="string"> 4 </span>][<span class="symbol"> 6 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 5 </span>][<span class="symbol"> 0 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 5 </span>][<span class="symbol"> 1 </span>]: Congratulations, you decrypted a ciphertext!  One down, two to go :)</span><br><span class="line">5-7d29041c468b680fcff93c16011a2869f17de75b929b787503b412becde0321ec72fe1e499f2150a1dacb9a5f701c0b37470049dd560cef5163543469817971f50782f763f0b05ab7088f7ae</span><br><span class="line">5-a7a1e271cf263279cece532b540545fa539b0f3650e2929163b02ee5459debdc53c1e07149eb2153015bb5c88e6270e8</span><br><span class="line">5-149480c5c75cbe320564adfa432ac8ea241e048ed39c8bc6be14ca80c392487f43a7882075d785d62cb314ea6c89a6b5f28adfa56ec481e124567b88241de2a6cabcc7ec9de3acac8be5375b</span><br><span class="line">5-7285289084282d559573f68eef10191091d76d6670014202670651f867cd2bc8640a86eef1c1e482affc7ae801fa446956c2186972fb6b7bac88c91d050c9d3cca</span><br><span class="line"></span><br><span class="line">plaintext[<span class="string"> 5 </span>][<span class="symbol"> 2 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 5 </span>][<span class="symbol"> 3 </span>]: None</span><br><span class="line">plaintext[<span class="string"> 5 </span>][<span class="symbol"> 6 </span>]: None</span><br><span class="line">[Finished in 39.7s]</span><br></pre></td></tr></table></figure>
+
+<p>发现结果可喜！每个ciphertext（除了2）都有一个prikey可以解开。而且格式符合split_secret结果的格式。Congratulations, you decrypted a ciphertext!  One down, two to go :)  每个plaintext都有的这句话应该就是message1的内容。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="keyword">from</span> secretsharing import SecretSharer</span><br><span class="line">&gt;&gt;&gt;<span class="built_in"> shares </span>= SecretSharer.split_secret(<span class="string">"c4bbcb1fbec99d65bf59d85c8cb62ee2db963f0fe106f483d9afa73bd4e39a8a"</span>, 2, 3)				</span><br><span class="line">[<span class="string">'1-58cbd30524507e7a198bdfeb69c8d87fd7d2c10e8d5408851404f7d258cbcea7'</span>, <span class="string">'2-ecdbdaea89d75f8e73bde77a46db821cd40f430d39a11c864e5a4868dcb403ed'</span>, <span class="string">'3-80ebe2cfef5e40a2cdefef0923ee2bb9d04bc50be5ee308788af98ff609c380a'</span>]</span><br><span class="line"><span class="comment"># github上面的代码，split_secret结果格式和我们还原出来的一致</span></span><br></pre></td></tr></table></figure>
+
+<p>虽然ciphertext2没解开，但是shamir算法要求只要找到的pieces数量能达到阈值就可以正确还原message 了。阈值在哪呢？generate-plaintexts代码里的<code>shares = SS.split_secret(msg, i, 5)</code>    ，i 即是阈值。这是通过github该项目里面的secret-sharing这个文件里面找到的。</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def split<span class="constructor">_secret(<span class="params">cls</span>, <span class="params">secret_string</span>, <span class="params">share_threshold</span>, <span class="params">num_shares</span>)</span>:</span><br><span class="line">    secret_int = charset<span class="constructor">_to_int(<span class="params">secret_string</span>, <span class="params">cls</span>.<span class="params">secret_charset</span>)</span></span><br><span class="line">    points = secret<span class="constructor">_int_to_points(<span class="params">secret_int</span>, <span class="params">share_threshold</span>, <span class="params">num_shares</span>)</span></span><br><span class="line">    shares = <span class="literal">[]</span></span><br><span class="line">    for point <span class="keyword">in</span> points:</span><br><span class="line">        shares.append(point<span class="constructor">_to_share_string(<span class="params">point</span>, <span class="params">cls</span>.<span class="params">share_charset</span>)</span>)</span><br><span class="line">    return shares</span><br></pre></td></tr></table></figure>
+
+<p>所以 i 是阈值，即message2需要2个pieces，message3 需要3个pieces …….所以flag5要5个piece才能完全恢复，我们目前只有4个。悲……….</p>
+<p>还是再写个exp把前面几个message恢复再说。在<a href="https://github.com/blockstack/secret-sharing" target="_blank" rel="noopener">https://github.com/blockstack/secret-sharing</a> readme文档里面已经讲的很清楚怎么恢复文档了。这里我们要选PlaintextToHexSecretSharer这个方法，能直接还原出文字。这里我卡了比较久，因为我用SecretSharer这个方法了，解出来是16进制，再转换成字符串就都是乱码。没注意到有这个可以直接转化成文字的方法。。。。。。下次阅读文档真的要细心一些。</p>
+<p>特别注意，每一个share都要从前面每一个PLAINTEXTS 里面找出1- 3- 4- 5-开头的串。因为我们的PLAINTEXTS[k]的组成是: message1+message 2(piece k)+ message 3（piece k） +message 4(piece k) +……+ message5(piece k)。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">rom secretsharing import PlaintextToHexSecretSharer</span><br><span class="line">shares2 =['1-32a1cd9f414f14cff<span class="number">6685879444</span>acbe41e5dba<span class="number">6574</span>a072cace6e8d0eb338ad<span class="number">6491089736</span>9b<span class="number">7589</span>e6a408c861c8e708f60fbbbe<span class="number">9195</span>3d4a73bcf1df11e1ecaa<span class="number">2885</span>bed1e5a772bfed42d776a9','3-17e568ddc3ed3e6fe330ca47a2b27a<span class="number">2707</span>edd0e<span class="number">0839</span>df59fe<span class="number">9114</span>fe6c08c6fc1ac1c3c8d9ab3cf<span class="number">7860</span>dac103dff464d4c215e197b54f0cb<span class="number">46993912</span>c3d<span class="number">0220</span>a3eb1b80adf33ee2cc59b<span class="number">0372</span>c','4-4a<span class="number">8736</span>7d053c533fd<span class="number">995032</span>ed1e<span class="number">651487</span>cb5dc1e0b1cb70a<span class="number">7662</span>b152c<span class="number">7365</span>0f039a60f391a52f<span class="number">2413</span>f43bd54eb7b12c41b42f31ac557edd4bfe46a396a8cdbe19dc9d<span class="number">812192</span>4f43be51c976d','5-7d<span class="number">2904</span>1c468b680fcff93c<span class="number">1601</span>1a<span class="number">2869</span>f17de75b929b<span class="number">787503</span>b412becde<span class="number">0321</span>ec72fe1e499f<span class="number">2150</span>a1dacb9a5f701c0b<span class="number">37470049</span>dd560cef<span class="number">51635434698179</span>71f<span class="number">5078</span>2f763f0b05ab<span class="number">7088</span>f7ae']</span><br><span class="line">message2 = PlaintextToHexSecretSharer.recover_secret(shares2[<span class="number">0</span>:<span class="number">4</span>])</span><br><span class="line">print <span class="string">"message2:"</span>,(message2)</span><br><span class="line">shares3 =['1-e0c113fa1ebea<span class="number">9318</span>dd413bf<span class="number">28308707</span>fd660a5d<span class="number">1417</span>fbc7da<span class="number">7241</span>6c8baaa5bf628f11c660dcee<span class="number">51813435</span>3e6ff8d37c','3-b69efb4f9c<span class="number">520517</span>5a4c9afb9d3c7bef728d9fb6c9cc<span class="number">124141</span>1b31d4bd<span class="number">1874466039</span>1a330cefa8a86af8d2b80c881cfa','4-abbbcee71f<span class="number">140198</span>ff8c50f<span class="number">51069465075979</span>c31d32b052e7ae82ec7f<span class="number">6783</span>aef7b41a597f<span class="number">9504</span>d<span class="number">334096</span>7b8d70cbe5a3','5-a7a1e271cf<span class="number">263279</span>cece532b<span class="number">540545</span>fa539b0f<span class="number">3650</span>e<span class="number">292916</span>3b02ee<span class="number">5459</span>debdc53c1e<span class="number">0714</span>9eb<span class="number">215301</span>5bb5c88e<span class="number">6270</span>e8']</span><br><span class="line">message3 = PlaintextToHexSecretSharer.recover_secret(shares3[<span class="number">0</span>:<span class="number">4</span>])</span><br><span class="line">print <span class="string">"message3:"</span>,(message3)</span><br><span class="line">shares4 =['1-1b8b6c4e<span class="number">3145</span>a96b1b<span class="number">0031</span>f<span class="number">6352</span>1c8df<span class="number">5871</span>3c4d6d<span class="number">737039</span>b0f1c<span class="number">0750</span>e16e<span class="number">157934</span>0cfc5dadef4e96d6b95ecf89f52b<span class="number">8136</span>ae657c9c32e96bf<span class="number">4384</span>e18bd<span class="number">819054</span>6ff<span class="number">5102</span>cd006be5e<span class="number">158005</span>3','3-572e70c5acfbe8b4c2cbd<span class="number">47217477</span>d217da88c256ff<span class="number">2586</span>af6a<span class="number">18391972</span>c258bbea<span class="number">6143</span>e7cd2ff6d<span class="number">3939</span>3efeb64d51d<span class="number">9318</span>a2c337e50e2d764a<span class="number">4217</span>3bc3a1d5c7c8f24b<span class="number">6404</span>3daf5d2a8e9f4','4-35fbbe<span class="number">4005</span>8e<span class="number">20463547</span>b363d1f164c0bbbb97cfd9ffe<span class="number">7619</span>bce31a<span class="number">5939</span>2f0e<span class="number">9625</span>a2cd<span class="number">035276</span>e09c4df3c<span class="number">0932</span>f22bd322f16e375c7c7fd88da0f<span class="number">97283270</span>7eb549ff1e776db<span class="number">37649019</span>ebce','5-<span class="number">149480</span>c5c75cbe<span class="number">320564</span>adfa432ac8ea241e048ed39c8bc6be14ca80c<span class="number">392487</span>f43a<span class="number">788207</span>5d785d62cb314ea6c89a6b5f28adfa56ec481e<span class="number">124567</span>b<span class="number">8824</span>1de2a6cabcc7ec9de3acac8be<span class="number">5375</span>b']</span><br><span class="line">message4 =PlaintextToHexSecretSharer.recover_secret(shares4[<span class="number">0</span>:<span class="number">4</span>])</span><br><span class="line">print <span class="string">"message4:"</span>,(message4)</span><br><span class="line"></span><br><span class="line">shares5 =['1-c332b8b93a<span class="number">914532</span>a2dab045ea52b86d4d<span class="number">3950</span>a990b5fc5e041dce9be1fd<span class="number">3912</span>f<span class="number">9978</span>cad<span class="number">009320</span>e18f<span class="number">4383</span>ca71d9d<span class="number">7911</span>4c<span class="number">9816</span>b5f<span class="number">950305</span>a6dd19c9f<span class="number">458695</span>d52','3-e9e<span class="number">685088</span>0eb0a44d36fe9f2e5a458c6da<span class="number">3977</span>b7fcd285afa27e9bfc116b<span class="number">14085709915041</span>16b<span class="number">8186</span>4b03a<span class="number">7060</span>bfd5d3fb6e007bb346f276d749befd545d<span class="number">1489</span>c4','4-12b<span class="number">466934911986</span>bda845d8d<span class="number">2671</span>0a<span class="number">1225</span>0d<span class="number">210546</span>f<span class="number">4671</span>6c78d7a17b1f2c893b95b934c8c7beafcf81a<span class="number">3123</span>eb2ea05ca<span class="number">8910</span>1b<span class="number">2334</span>9e<span class="number">455794</span>a8d<span class="number">5660</span>8c8ee49dd','5-<span class="number">728528908428</span>2d<span class="number">559573</span>f68eef<span class="number">10191091</span>d76d<span class="number">66700142026706</span>51f867cd2bc<span class="number">8640</span>a86eef1c1e482affc7ae801fa<span class="number">446956</span>c<span class="number">218697</span>2fb6b7bac88c91d050c9d3cca']</span><br><span class="line">message5= PlaintextToHexSecretSharer.recover_secret(shares5[<span class="number">0</span>:<span class="number">4</span>])</span><br><span class="line">print <span class="string">"message5:"</span>,(message5)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">message2: <span class="keyword">And</span> another <span class="keyword">on</span><span class="string">e's down, and another one'</span>s down, <span class="keyword">and</span> another one bites the dust!</span><br><span class="line"></span><br><span class="line">message3: Thre<span class="string">e's the magic number!  FLAG&#123;ndQzjRpnSP60NgWET6jX&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">message4: Pssst--- can you keep a secret?  If you get all five plaintexts, there'</span>s another flag :)</span><br><span class="line"></span><br><span class="line">message5: <span class="number">1.</span>/<span class="number">2</span>J6|M&#123;g!;L	oJx<span class="string">''</span>`z.uOzEM	)g1<span class="string">'-:t</span></span><br><span class="line"><span class="string">Ux%&lt;HE7jWoi	9#q_ZUq_:+u9]]y/*|5ch&gt;Ee!mGj*M</span></span><br><span class="line"><span class="string">[Finished in 0.1s]</span></span><br></pre></td></tr></table></figure>
+
+<p>Bingo！flag就在flag3里面。</p>
+<p>message5的结果果然是不正确的，因为它需要5个pieces才能正确还原。根据提示如果能解出5个plaintext，就能求得另一个flag。哈哈～ 要怎么破解出剩下的ciphertext2，就留给大家去研究了。</p>
+<p>总结一下：</p>
+<p>这种综合的RSA算法是难度比较高的，对大家对代码的阅读能力、代码的编写能力、信息收集能力、快速学习新算法的能力都要求比较高。有空多看看最新的英文算法文献也是非常有帮助的！</p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/2021/02/25/RSA-WP——综合加密篇/" data-toggle="tooltip" data-placement="top" title="RSA-WP——综合加密篇 ">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=RSA buffet&body=Hi,I found this website and thought you might like it https://xiangning130.github.io/2021/02/25/RSA-buffet/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: '',
+    id: 'Thu Feb 25 2021 17:24:54 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'en'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#RSA-buffet"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">RSA-buffet</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Crypto" title="Crypto">Crypto</a>
+            
+            <a class="tag" href="/tags/#RSA" title="RSA">RSA</a>
+            
+            <a class="tag" href="/tags/#CTF" title="CTF">CTF</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="" target="_blank"></a>
+          </li>
+          
+          <li>
+            <a href="" target="_blank"></a>
+          </li>
+          
+          <li>
+            <a href="" target="_blank"></a>
+          </li>
+          
+          <li>
+            <a href="" target="_blank"></a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+	<!-- Footer (contains ThemeColor、viewer) -->
+	<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/xiangning130">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          Olivia
+          2021
+          <br>
+          Theme by
+          <a href="http://beantech.org" target="_blank" rel="noopener">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by
+          <a href="https://v-vincen.life/" target="_blank" rel="noopener">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/js/jquery.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script type="text/javascript" src="/js/hux-blog.min.js"></script>
+
+<!-- catalog -->
+<script type="text/javascript" async="true" src="/js/catalog.js?v=1.0.0"></script>
+
+<!-- totop(rocket) -->
+<script type="text/javascript" async="true" src="/js/totop.js?v=1.0.0"></script>
+
+<!-- Busuanzi JavaScript -->
+
+  <!-- <script type="text/javascript" async="true" src="/js/busuanzi.pure.mini.js"></script> -->
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+  <!-- Scroll start -->
+  <script type="text/javascript" src="/js/scroll.js"></script>
+  <!-- Scroll end -->
+
+
+
+  <!-- ThemeColor start -->
+  <script type="text/javascript" src="/js/themecolor.js"></script>
+  <!-- ThemeColor end -->
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  <script type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+  <script type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){ hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if($('#tag_cloud').length !== 0){ async("https://xiangning130.github.io/js/jquery.tagcloud.js",function(){ $.fn.tagcloud.defaults = { //size: {start: 1, end: 1, unit: 'em'}, color: {start:
+'#bbbbee', end: '#0085a1'}, }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+	<!-- Search -->
+	
+	<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/ziploader.js"></script>
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+	
+
+	<!-- Image to hack wechat -->
+	<!-- <img src="https://xiangning130.github.io/img/icon_wechat.png" width="0" height="0" /> -->
+	<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
