@@ -71,12 +71,12 @@
 
   <!-- Pygments Highlight CSS -->
   
-<link rel="stylesheet" href="../css/highlight.css">
-<link rel="stylesheet" href="../css/widget.css">
-<link rel="stylesheet" href="../css/rocket.css">
-<link rel="stylesheet" href="../css/signature.css">
-<link rel="stylesheet" href="../css/catalog.css">
-<link rel="stylesheet" href="../css/livemylife.css">
+<link rel="stylesheet" href="../../../../css/highlight.css">
+<link rel="stylesheet" href="../../../../css/widget.css">
+<link rel="stylesheet" href="../../../../css/rocket.css">
+<link rel="stylesheet" href="../../../../css/signature.css">
+<link rel="stylesheet" href="../../../../css/catalog.css">
+<link rel="stylesheet" href="../../../../css/livemylife.css">
 
 
   
@@ -138,10 +138,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://xiangning130.github.io/categories/">
+  <link rel="canonical" href="https://xiangning130.github.io/2021/02/25/RSA-WP——综合加密篇/">
   <title>
     
-    Categories - null
+    RSA-WP——综合加密篇  - null
     
   </title>
 <meta name="generator" content="Hexo 4.2.1"></head>
@@ -289,8 +289,8 @@
 
   <style type="text/css">
     header.intro-header {
-       /*page*/
-        background-image: url('/img/header_img/GOT/image1.jpeg');
+       /*post*/
+        background-image: url('/img/blogs/queen.jpg');
       
     }
 
@@ -308,10 +308,46 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Categories</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">Hi , here is Categories ....</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Crypto" title="Crypto">Crypto</a>
+              
+              <a class="tag" href="/tags/#RSA" title="RSA">RSA</a>
+              
+              <a class="tag" href="/tags/#CTF" title="CTF">CTF</a>
+              
+            </div>
+            <h1>RSA-WP——综合加密篇 </h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by Olivia on
+              2021-02-25
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">6</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.4k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -352,135 +388,308 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-	<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <!-- 标签云 -->
-      <div id='tag_cloud' class="tags">
+	<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <p>在CTF比赛中，利用RSA算法结合别的算法进行综合加密已经成为出题的主流。通常给出了加密算法，给出了密文，需要大家看懂加密算法，并且编写出对应的解密脚本来还原明文。</p>
+<p>这类题目的难度通常比较高，综合考验大家阅读代码、理解代码、理解加密算法已经编写脚本的能力。</p>
+<h2 id="一、handicraft-RSA"><a href="#一、handicraft-RSA" class="headerlink" title="一、handicraft RSA"></a>一、handicraft RSA</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><a href="https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=4981&amp;page=3" target="_blank" rel="noopener">https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=4981&amp;page=3</a></p>
+<p>这题属于综合题里比较简单的了。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>kali里面binwalk -e+文件名，分解附件。是一个加密算法和一个output，output里有一半是公钥，一半是密文。</p>
+<p>加密算法要看懂，经过s轮的RSA加密，s是未知的。最后再用base64加密得到密文。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnztn6hp2sj30ca0dqjtv.jpg" alt="图片2"></p>
+<p>先将密文用base64解密，存成一个文件cipher.enc</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnztr8h5qxj30fw00s744.jpg" alt="图片3"></p>
+<p>已经可以代入CTF-RSA-tool进行RSA解密了</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnzttx36ddj30fo065wf1.jpg" alt="图片4"></p>
+<p>解出来是乱码很正常，这只是一次RSA解密。要得到正确的明文还不知道要解密几次（s次加密，s未知），可以将10进制的m当作输入迭代多轮，但是太麻烦，所以写脚本才是王道。</p>
+<h3 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h3><p>先从公钥中分解N和e</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnztyjhl73j30fq04emxd.jpg" alt="图片5"></p>
+<p>n带入在线分解网站得出p、q。<a href="http://www.factordb.com/index.php" target="_blank" rel="noopener">http://www.factordb.com/index.php</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnztzfvpo1j30ic046755.jpg" alt="图片6"></p>
+<p>将n、p、q、e、c的值写入脚本，我先迭代了20轮，就可以看到输出flag了</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnzubuzhhhj30oh0jkgqv.jpg" alt="image-20210225160419837"></p>
+<h2 id="二、RSA"><a href="#二、RSA" class="headerlink" title="二、RSA"></a>二、RSA</h2><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><p><a href="https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=5519&amp;page=5" target="_blank" rel="noopener">https://adworld.xctf.org.cn/task/answer?type=crypto&amp;number=5&amp;grade=1&amp;id=5519&amp;page=5</a></p>
+<p>这题是非常典型的大型比赛综合加密的难度了。</p>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>附件下载下来是一个加密脚本、一个密文和一个公钥</p>
+<p>公钥的n很容易分解出p和q，但是要拿flag绝对没有这么简单</p>
+<p>加密脚本仔细读一下，原题肯定是没有边上的注释的，我加上去的。在把加密算法理解的基础上，就可以构造解密脚本了。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnzujw8gguj30xc0jgwi7.jpg" alt="图片8"></p>
+<p>而PKCS1_V1_5是什么算法，大家可能都不熟悉。在CTF Crypto中遇到不熟悉的算法，又从Crypto.Cipher这个包中导入的，说明这是一个成熟的算法，可以直接google去搜，一般都能找到github上的开源代码。如果你本地有装这个包，也可以找到源码。我们重点关注加密和解密的调用方法以及携带的参数。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">As <span class="keyword">an</span> example, <span class="keyword">a</span> sender may <span class="built_in">encrypt</span> <span class="keyword">a</span> message <span class="keyword">in</span> this way:</span><br><span class="line">        &gt;&gt;&gt; <span class="built_in">from</span> Crypto.Cipher import PKCS1_v1_5</span><br><span class="line">        &gt;&gt;&gt; <span class="built_in">from</span> Crypto.PublicKey import RSA</span><br><span class="line">        &gt;&gt;&gt; <span class="built_in">from</span> Crypto.Hash import SHA</span><br><span class="line">        &gt;&gt;&gt;</span><br><span class="line">        &gt;&gt;&gt; message = b<span class="string">'To be encrypted'</span></span><br><span class="line">        &gt;&gt;&gt; h = SHA.<span class="built_in">new</span>(message)</span><br><span class="line">        &gt;&gt;&gt;</span><br><span class="line">        &gt;&gt;&gt; key = RSA.importKey(<span class="built_in">open</span>(<span class="string">'pubkey.der'</span>).<span class="built_in">read</span>())</span><br><span class="line">        &gt;&gt;&gt; cipher = PKCS1_v1_5.<span class="built_in">new</span>(key)</span><br><span class="line">        &gt;&gt;&gt; ciphertext = cipher.<span class="built_in">encrypt</span>(message+h.digest())</span><br><span class="line">At <span class="keyword">the</span> receiver side, decryption can be done <span class="keyword">using</span> <span class="keyword">the</span> <span class="keyword">private</span> part <span class="keyword">of</span></span><br><span class="line"><span class="keyword">the</span> RSA key:</span><br><span class="line">        &gt;&gt;&gt; From Crypto.Hash import SHA</span><br><span class="line">        &gt;&gt;&gt; <span class="built_in">from</span> Crypto import Random</span><br><span class="line">        &gt;&gt;&gt;</span><br><span class="line">        &gt;&gt;&gt; key = RSA.importKey(<span class="built_in">open</span>(<span class="string">'privkey.der'</span>).<span class="built_in">read</span>())</span><br><span class="line">        &gt;&gt;&gt;</span><br><span class="line">        &gt;&gt;&gt; dsize = SHA.digest_size</span><br><span class="line">        &gt;&gt;&gt; sentinel = Random.<span class="built_in">new</span>().<span class="built_in">read</span>(<span class="number">15</span>+dsize)      <span class="comment"># Let's assume that average data length is 15</span></span><br><span class="line">        &gt;&gt;&gt;</span><br><span class="line">        &gt;&gt;&gt; cipher = PKCS1_v1_5.<span class="built_in">new</span>(key)</span><br><span class="line">        &gt;&gt;&gt; message = cipher.<span class="built_in">decrypt</span>(ciphertext, sentinel)</span><br><span class="line">        &gt;&gt;&gt;</span><br><span class="line">        &gt;&gt;&gt; digest = SHA.<span class="built_in">new</span>(message[:-dsize]).digest()</span><br><span class="line">        &gt;&gt;&gt; <span class="keyword">if</span> digest==message[-dsize:]:                <span class="comment"># Note how we DO NOT look for the sentinel</span></span><br><span class="line">        &gt;&gt;&gt;     print <span class="string">"Encryption was correct."</span></span><br><span class="line">        &gt;&gt;&gt; <span class="keyword">else</span>:</span><br><span class="line">        &gt;&gt;&gt;     print <span class="string">"Encryption was not correct."</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解题-1"><a href="#解题-1" class="headerlink" title="解题"></a>解题</h3><p>先把n、e、p、q、d导出来</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnzuruk7kgj30jw0153yh.jpg" alt="图片9"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnzusev16yj30k0052gma.jpg" alt="图片10"></p>
+<p>但这里要注意，这些参数只是没有开始while循环时的，不是最终加密用的。</p>
+<p>所以解密的脚本也要相应的做一个循环，寻找能正确解密的参数。逻辑和加密是一样的，先用原始的 n、e、d构造私钥，然后用PKCS1_v1_5.new( ) 新生成一个PKCS1_v1_5的对象cipher，调用cipher.decrypt( )进行解密。如果解密失败，就执行第31行else的部分：将p和q更新，重新生成n，并构造新私钥解密。如果解密成功就退出循环，打印明文。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#coding:utf<span class="number">-8</span></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_v1_5</span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">q= <span class="number">184333227921154992916659782580114145999</span></span><br><span class="line">p= <span class="number">336771668019607304680919844592337860739</span></span><br><span class="line">e= <span class="number">9850747023606211927</span></span><br><span class="line">flag_encode=b64decode(open(<span class="string">'flag.enc'</span>,<span class="string">'r'</span>).read())</span><br><span class="line">i=<span class="number">1</span></span><br><span class="line">     </span><br><span class="line"><span class="keyword">while</span> True:</span><br><span class="line">	print i</span><br><span class="line">	i=i+<span class="number">1</span></span><br><span class="line">	n = p * q</span><br><span class="line">	d = invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))</span><br><span class="line">	<span class="keyword">if</span> n &gt;= <span class="built_in">int</span>(flag_encode.encode(<span class="string">'hex'</span>),<span class="number">16</span>):</span><br><span class="line">			print(p)</span><br><span class="line">			private_key = RSA.construct((<span class="built_in">int</span>(n),<span class="built_in">int</span>(e),<span class="built_in">int</span>(d)))</span><br><span class="line">			cipher = PKCS1_v1_5.new(private_key)</span><br><span class="line">			message = cipher.decrypt(flag_encode,None)</span><br><span class="line">			print(message)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">            </span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		p = next_prime(p**<span class="number">2</span> + q**<span class="number">2</span>)</span><br><span class="line">		q = next_prime(<span class="number">2</span>*p*q)</span><br><span class="line">		e = next_prime(e**<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>为什么要让n》=密文的长度呢？如果n比密文小，那么密文是不可能通过取n的模得到的。</p>
+<p>这里的decrpyt（）函数官方的用法是 <code>message = cipher.decrypt(ciphertext, sentinel)</code>，sentinel是解密失败的一个返回值，我们这里设成None。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">message</span> = cipher.decrypt(flag_encode,None)</span><br></pre></td></tr></table></figure>
+
+<p>但是这里的p、q真的是个坑，因为p、q作为n的因子，是没有固定对应的，所以p和q的原始值是可以互换的。但是在循环的时候，他们变化的运算是不同的，就这个点没有注意到，我的脚本写了一整天也没有解出来，一直报ValueError: Ciphertext with incorrect length密文长度错误。看了官方的脚本，只有p和q的原始值互换了一下，这才想到这点，简直吐血。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>其实PKCS1_v1_5是可以支持加密、解密分块</p>
+<p>加密块的长度为 密钥长度/8-11， 解密块的长度为 密钥长度/8。</p>
+<p>这种分块的脚本可以参考</p>
+<p><a href="https://www.cnblogs.com/sammy1989/p/9583965.html" target="_blank" rel="noopener">https://www.cnblogs.com/sammy1989/p/9583965.html</a></p>
+<p><a href="https://blog.csdn.net/draven1122/article/details/55212252?utm_source=blogxgwz2" target="_blank" rel="noopener">https://blog.csdn.net/draven1122/article/details/55212252?utm_source=blogxgwz2</a></p>
+<p>这部分内容也可以了解一下，也许这就是下次比赛的考点呢。</p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/2021/02/24/RSA-WP-特殊算法篇/" data-toggle="tooltip" data-placement="top" title="RSA WP--特殊算法篇">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
         
-        <a href="#CTF" title="CTF" rel="7">CTF</a>
+        <!-- tip start -->
+        <div class="tip">
+          <p>
+            If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+          </p>
+        </div>
+        <!-- tip end -->
         
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=RSA-WP——综合加密篇 &body=Hi,I found this website and thought you might like it https://xiangning130.github.io/2021/02/25/RSA-WP——综合加密篇/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+<!-- gitalk start -->
+<!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+<div id="gitalk-container"></div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+<script src="/js/comment/gitalk.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: '',
+    id: 'Thu Feb 25 2021 15:16:55 GMT+0800', // Ensure uniqueness and length less than 50
+    distractionFreeMode: false, // Facebook-like distraction free mode
+    perPage: 10 ,
+    pagerDirection: 'last',
+    createIssueManually: false ,
+    language: 'en'
+  });
+  gitalk.render('gitalk-container');
+
+  var gtFolded = () => {
+    setTimeout(function() {
+      let markdownBody = document.getElementsByClassName("markdown-body");
+      let list = Array.from(markdownBody);
+      list.forEach(item => {
+        if (item.clientHeight > 250) {
+          item.classList.add('gt-comment-body-folded');
+          item.style.maxHeight = '250px';
+          item.title = 'Click to Expand';
+          item.onclick = function() {
+            item.classList.remove('gt-comment-body-folded');
+            item.style.maxHeight = '';
+            item.title = '';
+            item.onclick = null;
+          };
+        }
+      })
+    }, 800);
+  }
+</script>
+
+<!-- gitalk end -->
+
+
+
+<!-- 2. gitment comment -->
+
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
       </div>
 
-      <!-- 标签列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="CTF">
-          <span class="tag-text">CTF</span>
-        </span>
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
         
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/25/RSA-WP——综合加密篇/">
-            <h2 class="post-title">
-              RSA-WP——综合加密篇 
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一、handicraft-RSA"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">一、handicraft RSA</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#题目"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">题目</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分析"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">分析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#解题"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">解题</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二、RSA"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">二、RSA</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#题目-1"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">题目</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分析-1"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">分析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#解题-1"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">解题</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#扩展"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">扩展</span></a></li></ol></li></ol>
         
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/24/RSA-WP-特殊算法篇/">
-            <h2 class="post-title">
-              RSA WP--特殊算法篇
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
         </div>
-        <hr>
+      </aside>
+    
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
         
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/19/RSA入门/">
-            <h2 class="post-title">
-              RSA入门
-            </h2>
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
             
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
+            <a class="tag" href="/tags/#Crypto" title="Crypto">Crypto</a>
+            
+            <a class="tag" href="/tags/#RSA" title="RSA">RSA</a>
+            
+            <a class="tag" href="/tags/#CTF" title="CTF">CTF</a>
+            
+          </div>
+        </section>
         
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/24/RSA-WP——基础题型篇/">
-            <h2 class="post-title">
-              RSA WP——基础题型篇
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
+
+        <!-- Friends Blog -->
         
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/20/RSA工具/">
-            <h2 class="post-title">
-              RSA工具
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
         <hr>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/22/RSA解题类型总结/">
-            <h2 class="post-title">
-              RSA解题类型总结
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/2021/02/19/RSA解题快速指南/">
-            <h2 class="post-title">
-              RSA解题快速指南
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="" target="_blank"></a>
+          </li>
+          
+          <li>
+            <a href="" target="_blank"></a>
+          </li>
+          
+          <li>
+            <a href="" target="_blank"></a>
+          </li>
+          
+          <li>
+            <a href="" target="_blank"></a>
+          </li>
+          
+        </ul>
         
       </div>
-      
-
     </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 	<!-- Footer (contains ThemeColor、viewer) -->
